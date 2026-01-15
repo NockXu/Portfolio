@@ -10,8 +10,34 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model User {
-  id    Int     @id @default(autoincrement())
-  email String  @unique
-  name  String?
+model Pass {
+  id       Int    @id @default(autoincrement())
+  name     String @unique
+  password String
+}
+
+model Project {
+  id          Int      @id @default(autoincrement())
+  title       String
+  description String
+  link        String
+  images      Image[]
+  skills      Skill[]
+}
+
+model Image {
+  id        Int     @id @default(autoincrement())
+  path      String  @unique
+  rank      Int     @default(0) // 0 = pas important, 1 = secondaire, 2 = image principale
+
+  projectId Int
+  project   Project @relation(fields: [projectId], references: [id])
+}
+
+model Skill {
+  id     Int       @id @default(autoincrement())
+  type   String
+  name   String
+  level  Int // 1 à 5
+  projects Project[]
 }

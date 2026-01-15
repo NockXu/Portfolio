@@ -1,3 +1,9 @@
 {
-    "hello": "Bienvenue dans mon template"
+    "hello": "Bienvenue dans mon template",
+    "nav": {
+        "home": "Accueil",
+        "about": "À propos",
+        "projects": "Projets",
+        "contact": "Contact"
+    }
 }

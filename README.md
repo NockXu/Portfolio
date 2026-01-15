@@ -297,4 +297,4 @@ Files `*.js`, `*.ts`, `*.vue` are linted automatically on commit.
 
 Private project - All rights reserved
 
-**Author:** GUILMIN Leny
+**Author:** [GUILMIN Leny](https://github.com/TarzanHR)

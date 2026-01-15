@@ -12,9 +12,9 @@
 		"prepare": "husky",
 		"lint": "eslint .",
 		"lint:fix": "eslint . --fix",
-		"docker:up": "docker-compose up -d",
-		"docker:down": "docker-compose down",
-		"docker:logs": "docker-compose logs -f mysql",
+		"docker:up": "docker compose up -d",
+		"docker:down": "docker compose down",
+		"docker:logs": "docker compose logs -f mysql",
 		"db:generate": "dotenv -e .env -o -- prisma generate",
 		"db:migrate": "dotenv -e .env -o -- prisma migrate dev",
 		"db:migrate:prod": "dotenv -e .env.production -o -- prisma migrate deploy",
@@ -25,9 +25,13 @@
 		"setup": "npm run docker:up && npm run db:generate && npm run db:push && npm run db:seed"
 	},
 	"dependencies": {
+		"@nuxt/ui": "^4.2.1",
+		"@nuxtjs/google-fonts": "^3.2.0",
 		"@nuxtjs/i18n": "^10.2.0",
+		"@nuxtjs/tailwindcss": "^6.14.0",
 		"@prisma/client": "^6.0.0",
 		"nuxt": "^4.2.1",
+		"tailwindcss": "^4.1.17",
 		"vue": "^3.5.24",
 		"vue-router": "^4.6.3"
 	},
