@@ -66,10 +66,16 @@ const items = [ // pour attendre les vraies images
 					</div>
 				</UCarousel>
 				<div class="text-center mt-5">
-					<NuxtLink to="/projects" class="group relative inline-flex items-center px-10 py-4 bg-gradient-to-r from-blue-500 to-purple-600 text-white font-medium text-lg rounded-lg overflow-hidden hover:shadow-lg transition-all duration-500 transform hover:-translate-y-0.5">
+					<NuxtLink
+						to="/projects"
+						class="group relative inline-flex items-center px-10 py-4 bg-gradient-to-r from-blue-500 to-purple-600 text-white font-medium text-lg rounded-lg overflow-hidden hover:shadow-lg transition-all duration-500 transform hover:-translate-y-0.5"
+					>
 						<span class="relative group-hover:translate-x-3 transition-all duration-500 ease-in-out z-10">Mes projets</span>
-						<UIcon name="i-heroicons-arrow-right" class="ml-4 w-6 h-6 group-hover:translate-x-2 transition-all duration-500 ease-in-out" />
-						<span class="absolute inset-0 bg-gradient-to-r from-purple-600 to-blue-500 opacity-0 group-hover:opacity-100 transition-all duration-500 ease-in-out"></span>
+						<UIcon
+							name="i-heroicons-arrow-right"
+							class="ml-4 w-6 h-6 group-hover:translate-x-2 transition-all duration-500 ease-in-out"
+						/>
+						<span class="absolute inset-0 bg-gradient-to-r from-purple-600 to-blue-500 opacity-0 group-hover:opacity-100 transition-all duration-500 ease-in-out" />
 					</NuxtLink>
 				</div>
 			</UCard>
@@ -95,10 +101,16 @@ const items = [ // pour attendre les vraies images
 						</div>
 
 						<div class="text-center">
-							<NuxtLink to="/about" class="group relative inline-flex items-center px-8 py-3.5 bg-gradient-to-r from-blue-500 to-purple-600 text-white font-medium rounded-lg overflow-hidden hover:shadow-lg transition-all duration-500 transform hover:-translate-y-0.5">
+							<NuxtLink
+								to="/about"
+								class="group relative inline-flex items-center px-8 py-3.5 bg-gradient-to-r from-blue-500 to-purple-600 text-white font-medium rounded-lg overflow-hidden hover:shadow-lg transition-all duration-500 transform hover:-translate-y-0.5"
+							>
 								<span class="relative group-hover:translate-x-3 transition-all duration-500 ease-in-out z-10">En savoir plus sur moi</span>
-								<UIcon name="i-heroicons-arrow-right" class="ml-3 w-5 h-5 group-hover:translate-x-2 transition-all duration-500 ease-in-out" />
-								<span class="absolute inset-0 bg-gradient-to-r from-purple-600 to-blue-500 opacity-0 group-hover:opacity-100 transition-all duration-500 ease-in-out"></span>
+								<UIcon
+									name="i-heroicons-arrow-right"
+									class="ml-3 w-5 h-5 group-hover:translate-x-2 transition-all duration-500 ease-in-out"
+								/>
+								<span class="absolute inset-0 bg-gradient-to-r from-purple-600 to-blue-500 opacity-0 group-hover:opacity-100 transition-all duration-500 ease-in-out" />
 							</NuxtLink>
 						</div>
 					</div>

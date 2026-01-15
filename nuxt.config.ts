@@ -34,11 +34,11 @@ export default defineNuxtConfig({
 	i18n: {
 		defaultLocale: 'fr',
 		locales: [
-			{ code: 'en', name: 'English', file: 'en.json' },
 			{ code: 'fr', name: 'France', file: 'fr.json' },
+			{ code: 'en', name: 'English', file: 'en.json' },
 		],
-		strategy: 'prefix_except_default',
-		langDir: 'locales',
+		strategy: 'no_prefix',
+		langDir: 'i18n/locales',
 	},
 
 	prisma: {

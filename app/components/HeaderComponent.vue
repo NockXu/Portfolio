@@ -1,8 +1,7 @@
 <script setup lang="ts">
 import type { NavigationMenuItem } from '@nuxt/ui';
 
-const { t, locale } = useI18n();
-
+const { t, locale, setLocale } = useI18n();
 const route = useRoute();
 
 const items = computed<NavigationMenuItem[]>(() => [
@@ -25,27 +24,67 @@ const items = computed<NavigationMenuItem[]>(() => [
 		label: 'Github',
 		to: 'https://github.com/NockXu',
 		target: '_blank',
+		icon: 'i-simple-icons-github',
 	},
 ]);
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-const value = computed({
-	get: () => locale.value === 'en',
-	set: (val: boolean) => {
-		locale.value = val ? 'en' : 'fr';
-	},
+const changeLanguage = (lang: 'en' | 'fr') => {
+	// Sauvegarder la langue dans le localStorage
+	localStorage.setItem('locale', lang);
+
+	// Changer la langue simplement
+	setLocale(lang);
+};
+
+const currentLanguage = computed(() => locale.value);
+
+const pageTitle = computed(() => {
+	return route.path === '/' ? 'Mon E-CV' : 'DAVID Gabriel';
 });
 </script>
 
 <template>
-	<UHeader>
-		<Logo class="h-6 w-auto" />
-		<UNavigationMenu :items="items" />
-		<!-- <span class="flex items-center justify-center gap-2">
-			<USwitch v-model="value" />
-			<p class="text-sm mb-1">
-				{{ value ? 'EN' : 'FR' }}
-			</p>
-		</span> -->
+	<UHeader
+		class="bg-gray-900/80 backdrop-blur-md border-b border-gray-800/50"
+		:ui="{
+			container: 'max-w-7xl mx-auto px-4 sm:px-6 lg:px-8',
+			left: 'flex items-center gap-8',
+			center: 'flex-1 flex items-center justify-center',
+			right: 'flex items-center gap-4',
+		}"
+		:title="pageTitle"
+	>
+		<div class="flex items-center gap-8">
+			<Logo class="h-8 w-auto transition-transform duration-300 hover:scale-105" />
+		</div>
+
+		<!-- Navigation -->
+		<UNavigationMenu
+			:items="items"
+			class="flex items-center gap-8"
+			color="secondary"
+		/>
+
+		<!-- Language selector -->
+		<div class="hidden sm:flex items-center bg-gray-800/50 rounded-lg p-1 border border-gray-700/50">
+			<UButton
+				:variant="currentLanguage === 'fr' ? 'solid' : 'ghost'"
+				size="sm"
+				color="secondary"
+				class="px-3 py-1 text-sm font-medium transition-all duration-200"
+				@click="changeLanguage('fr')"
+			>
+				FR
+			</UButton>
+			<UButton
+				:variant="currentLanguage === 'en' ? 'solid' : 'ghost'"
+				size="sm"
+				color="secondary"
+				class="px-3 py-1 text-sm font-medium transition-all duration-200"
+				@click="changeLanguage('en')"
+			>
+				EN
+			</UButton>
+		</div>
 	</UHeader>
 </template>
