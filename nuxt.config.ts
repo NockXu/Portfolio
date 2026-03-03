@@ -38,7 +38,7 @@ export default defineNuxtConfig({
 			{ code: 'en', name: 'English', file: 'en.json' },
 		],
 		strategy: 'no_prefix',
-		langDir: 'i18n/locales',
+		langDir: 'locales',
 	},
 
 	prisma: {
