@@ -2,20 +2,36 @@
 // Timeline data for education
 const timeline = [
 	{
-		year: '2021 - 2023',
-		title: 'BUT2 - DUT Informatique',
-		school: 'IUT de Lens',
-		description: 'Spécialisation en développement web et bases de données',
-		details: ['Projets en équipe', 'Frameworks modernes', 'Méthodes agiles'],
+		year: '2020 - 2023',
+		title: 'Baccalauréat',
+		school: 'Lycée Sophie Berthelot',
+		description: 'Baccalauréat Spécialité Mathématiques, NSI',
+		details: [],
 		icon: 'i-heroicons-academic-cap',
 	},
 	{
-		year: '2023 - 2025',
-		title: 'BUT3 - DUT Informatique',
-		school: 'IUT de Lens',
-		description: 'Approfondissement en architecture logicielle et DevOps',
-		details: ['Cloud et conteneurisation', 'CI/CD', 'Architecture microservices'],
+		year: '2023 - 2024',
+		title: 'BUT1',
+		school: 'IUT de Calais',
+		description: 'Entrée au BUT Informatique, j\'y ai revu mes bases en programmation et en algorithmique, j\'ai découvert l\'aspect conception avant la programmation (MLD/MCD en base de données), j\'ai aussi appris de nouveau language comme le java, le c, le postgreSQL, c\'est aussi l\'année où j\'ai pour la première fois participé à des gros projets de groupe comme la création d\'un site web et la création d\'un jeu textuelle en C.',
+		details: [],
+		icon: 'i-heroicons-academic-cap',
+	},
+	{
+		year: '2024 - 2025',
+		title: 'BUT2',
+		school: 'IUT de Calais',
+		description: 'Durant cette deuxième année, j\'ai appris à créer, sécuriser, documenter et utiliser une API REST, j\'ai aussi utilisé des frameworks comme Node.js, Vue.js, Symfony pour créer des applications web. De plus, j\'ai appris à créer des tests unitaires et à mettre en place une CI/CD pour le déploiement automatique de mes projets',
+		details: [],
 		icon: 'i-heroicons-cpu-chip',
+	},
+	{
+		year: '2025 - 2026',
+		title: 'BUT3',
+		school: 'IUT de Calais',
+		description: 'Pendant cette troisième année, j\'ai étudié le domaine de l\'ia en découvrent comment ',
+		details: [],
+		icon: 'i-heroicons-brain',
 	},
 ];
 
@@ -134,39 +150,11 @@ const goToIndex = (index: number) => {
 					<!-- Description -->
 					<div class="space-y-4">
 						<p class="text-gray-300 text-lg leading-relaxed">
-							Passionné par le développement web et les technologies émergentes, je crée des expériences digitales innovantes et performantes.
-							Mon approche combine esthétique moderne et architecture solide.
+							Passionné par l'informatique depuis tout petit, je me suis spécialisé dans le développement d'applications.
 						</p>
 						<p class="text-gray-400 leading-relaxed">
-							Étudiant en BUT3 Informatique à l'IUT de Lens, je suis toujours à l'affût des dernières tendances tech.
-							J'aime relever des défis techniques et transformer des idées en solutions concrètes.
+							Étudiant en troisième année de BUT Informatique à l'IUT de Calais, je porte mon intérêt vers les technologies d'ia.
 						</p>
-						<div class="flex flex-wrap gap-2 pt-4">
-							<UBadge
-								color="primary"
-								variant="soft"
-							>
-								Créatif
-							</UBadge>
-							<UBadge
-								color="success"
-								variant="soft"
-							>
-								Curieux
-							</UBadge>
-							<UBadge
-								color="info"
-								variant="soft"
-							>
-								Autonome
-							</UBadge>
-							<UBadge
-								color="warning"
-								variant="soft"
-							>
-								Collaboratif
-							</UBadge>
-						</div>
 					</div>
 				</div>
 			</UCard>
