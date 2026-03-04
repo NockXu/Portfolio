@@ -5,14 +5,16 @@ export default withNuxt(
 	// Your custom configs here
 	{
 		rules: {
-			'@typescript-eslint/no-unused-vars': ['warn', { 
+			'@typescript-eslint/no-unused-vars': ['warn', {
 				argsIgnorePattern: '^_',
 				varsIgnorePattern: '^_',
-				destructuredArrayIgnorePattern: '^_'
+				destructuredArrayIgnorePattern: '^_',
 			}],
 			'@typescript-eslint/no-explicit-any': 'warn',
 			'vue/multi-word-component-names': 'off',
-			'vue/no-unused-components': 'warn'
-		}
-	}
+			'vue/no-unused-components': 'warn',
+			'vue/no-multiple-template-root': 'off',
+			'no-irregular-whitespace': 'off',
+		},
+	},
 );
