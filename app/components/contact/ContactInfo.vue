@@ -66,18 +66,10 @@ defineProps<{
 				<UButton
 					variant="outline"
 					size="lg"
-					icon="i-heroicons-globe-alt"
-					color="secondary"
-					class="hover:bg-blue-500/20 hover:border-blue-500 transition-all duration-300"
-				>
-					Portfolio
-				</UButton>
-				<UButton
-					variant="outline"
-					size="lg"
 					icon="i-simple-icons-github"
 					color="secondary"
 					class="hover:bg-purple-500/20 hover:border-purple-500 transition-all duration-300"
+					href="https://github.com/NockXu"
 				>
 					GitHub
 				</UButton>
@@ -87,6 +79,7 @@ defineProps<{
 					icon="i-simple-icons-linkedin"
 					color="secondary"
 					class="hover:bg-blue-500/20 hover:border-blue-500 transition-all duration-300"
+					href="https://www.linkedin.com/in/gabriel-david-767758383"
 				>
 					LinkedIn
 				</UButton>

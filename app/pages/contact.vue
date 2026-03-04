@@ -68,14 +68,8 @@ const contactInfo = [
 	{
 		icon: 'i-heroicons-envelope',
 		label: 'Email',
-		value: 'contact@example.com',
-		href: 'mailto:contact@example.com',
-	},
-	{
-		icon: 'i-heroicons-phone',
-		label: 'Téléphone',
-		value: '+33 6 12 34 56 78',
-		href: 'tel:+33612345678',
+		value: 'gabriel.dav@outlook.fr',
+		href: 'mailto:gabriel.dav@outlook.fr',
 	},
 ];
 </script>

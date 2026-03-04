@@ -93,10 +93,10 @@ const items = [ // pour attendre les vraies images
 					<div class="flex flex-col justify-center h-full">
 						<div class="mb-6">
 							<p class="text-gray-300 text-lg leading-relaxed mb-4">
-								Étudiant en informatique à l'IUT de Calais depuis presque 2 ans, j'apprends et j'expérimente le monde de l'informatique.
+								Étudiant en informatique à l'IUT de Calais depuis plus de 2 ans.
 							</p>
 							<p class="text-gray-400 leading-relaxed">
-								J'habite à Calais et j'ai 19 ans. Je suis passionné par le développement informatique. De plus, je suis sérieux, travailleur et capable de travailler en équipe...
+								J'habite à Calais et j'ai 20 ans. Je suis passionné par le développement informatique. De plus, je suis sérieux, rigoureux et capable de travailler en équipe...
 							</p>
 						</div>
 
@@ -126,6 +126,168 @@ const items = [ // pour attendre les vraies images
 						>
 					</div>
 				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="py-16 px-4 bg-gradient-to-br from-gray-900/50 to-blue-950/50">
+		<div class="max-w-6xl mx-auto">
+			<div class="text-center mb-12">
+				<h2 class="text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400 mb-4">
+					Compétences Acquises
+				</h2>
+			</div>
+
+			<div class="space-y-8 max-w-4xl mx-auto">
+				<!-- Compétence 1 -->
+				<UCard class="bg-gray-800/50 border-gray-700 hover:border-blue-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/20">
+					<template #header>
+						<div class="flex items-center gap-3">
+							<div class="w-12 h-12 bg-blue-500/20 rounded-lg flex items-center justify-center">
+								<UIcon
+									name="i-heroicons-code-bracket"
+									class="w-6 h-6 text-blue-400"
+								/>
+							</div>
+							<div>
+								<h3 class="text-lg font-semibold text-blue-300">
+									UE6.1A - C1
+								</h3>
+								<p class="text-sm text-gray-400">
+									Réaliser
+								</p>
+							</div>
+						</div>
+					</template>
+					<div class="space-y-4">
+						<p class="text-gray-300">
+							Capacité à développer des applications complètes en suivant les bonnes pratiques de développement et les normes établies.
+						</p>
+						<div class="space-y-2">
+							<div class="flex items-center gap-2">
+								<UIcon
+									name="i-heroicons-check-circle"
+									class="w-4 h-4 text-green-400"
+								/>
+								<span class="text-gray-300 text-sm">Développement d'applications web</span>
+							</div>
+							<div class="flex items-center gap-2">
+								<UIcon
+									name="i-heroicons-check-circle"
+									class="w-4 h-4 text-green-400"
+								/>
+								<span class="text-gray-300 text-sm">Création d'API REST</span>
+							</div>
+							<div class="flex items-center gap-2">
+								<UIcon
+									name="i-heroicons-check-circle"
+									class="w-4 h-4 text-green-400"
+								/>
+								<span class="text-gray-300 text-sm">Développement de jeux vidéo</span>
+							</div>
+						</div>
+					</div>
+				</UCard>
+
+				<!-- Compétence 2 -->
+				<UCard class="bg-gray-800/50 border-gray-700 hover:border-purple-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/20">
+					<template #header>
+						<div class="flex items-center gap-3">
+							<div class="w-12 h-12 bg-purple-500/20 rounded-lg flex items-center justify-center">
+								<UIcon
+									name="i-heroicons-cog-6-tooth"
+									class="w-6 h-6 text-purple-400"
+								/>
+							</div>
+							<div>
+								<h3 class="text-lg font-semibold text-purple-300">
+									UE6.2 - C2
+								</h3>
+								<p class="text-sm text-gray-400">
+									Optimiser
+								</p>
+							</div>
+						</div>
+					</template>
+					<div class="space-y-4">
+						<p class="text-gray-300">
+							Aptitude à analyser et améliorer les performances des applications, ainsi qu'à optimiser les algorithmes et les structures de données.
+						</p>
+						<div class="space-y-2">
+							<div class="flex items-center gap-2">
+								<UIcon
+									name="i-heroicons-check-circle"
+									class="w-4 h-4 text-green-400"
+								/>
+								<span class="text-gray-300 text-sm">Optimisation de requêtes SQL</span>
+							</div>
+							<div class="flex items-center gap-2">
+								<UIcon
+									name="i-heroicons-check-circle"
+									class="w-4 h-4 text-green-400"
+								/>
+								<span class="text-gray-300 text-sm">Amélioration des performances web</span>
+							</div>
+							<div class="flex items-center gap-2">
+								<UIcon
+									name="i-heroicons-check-circle"
+									class="w-4 h-4 text-green-400"
+								/>
+								<span class="text-gray-300 text-sm">Refactorisation de code</span>
+							</div>
+						</div>
+					</div>
+				</UCard>
+
+				<!-- Compétence 3 -->
+				<UCard class="bg-gray-800/50 border-gray-700 hover:border-green-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-green-500/20">
+					<template #header>
+						<div class="flex items-center gap-3">
+							<div class="w-12 h-12 bg-green-500/20 rounded-lg flex items-center justify-center">
+								<UIcon
+									name="i-heroicons-users"
+									class="w-6 h-6 text-green-400"
+								/>
+							</div>
+							<div>
+								<h3 class="text-lg font-semibold text-green-300">
+									UE6.6A - C6
+								</h3>
+								<p class="text-sm text-gray-400">
+									Collaborer
+								</p>
+							</div>
+						</div>
+					</template>
+					<div class="space-y-4">
+						<p class="text-gray-300">
+							Capacité à travailler efficacement en équipe, à communiquer clairement et à utiliser des outils de collaboration pour mener des projets à bien.
+						</p>
+						<div class="space-y-2">
+							<div class="flex items-center gap-2">
+								<UIcon
+									name="i-heroicons-check-circle"
+									class="w-4 h-4 text-green-400"
+								/>
+								<span class="text-gray-300 text-sm">Travail d'équipe sur projets</span>
+							</div>
+							<div class="flex items-center gap-2">
+								<UIcon
+									name="i-heroicons-check-circle"
+									class="w-4 h-4 text-green-400"
+								/>
+								<span class="text-gray-300 text-sm">Utilisation de Git/GitHub</span>
+							</div>
+							<div class="flex items-center gap-2">
+								<UIcon
+									name="i-heroicons-check-circle"
+									class="w-4 h-4 text-green-400"
+								/>
+								<span class="text-gray-300 text-sm">Communication technique</span>
+							</div>
+						</div>
+					</div>
+				</UCard>
 			</div>
 		</div>
 	</div>

@@ -10,6 +10,10 @@ const router = useRouter();
 const items = computed<NavigationMenuItem[]>(() => [
 
 	{
+		label: t('nav.home'),
+		to: '/',
+	},
+	{
 
 		label: t('nav.about'),
 
@@ -36,18 +40,6 @@ const items = computed<NavigationMenuItem[]>(() => [
 		to: '/contact',
 
 		active: route.path.startsWith('/contact'),
-
-	},
-
-	{
-
-		label: 'Github',
-
-		to: 'https://github.com/NockXu',
-
-		target: '_blank',
-
-		icon: 'i-simple-icons-github',
 
 	},
 

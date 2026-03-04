@@ -4,15 +4,15 @@
 ============================================================ -->
 <script lang="ts">
 export const projectMeta = {
-	title: 'Application de traitement d\'image',
-	description: 'Le but de ce projet était de créer un logiciel capable de récupérer les images des satellites depuis la base de données MAST, de les transformer et d’améliorer leur coloration.',
-	tech: ['Python'],
-	image: '/projects/traitement_image/space.png',
+	title: 'Recréation du site de l\'association Passion Rando',
+	description: 'Refonte complète du site de l\'association pour le rendre dynamique et permettre le partage des calendriers de randonnées',
+	tech: ['php', 'mysql', 'html', 'css', 'javascript'],
+	image: '/projects/rando_passion/accueil.png',
 	github: '',
 	demo: '',
-	category: 'Application',
-	status: 'Terminé' as const,
-	year: '2024',
+	category: 'web',
+	status: 'En cours' as const,
+	year: '2025',
 };
 </script>
 
@@ -100,89 +100,31 @@ export const projectMeta = {
 					{{ projectMeta.title }}
 				</h1>
 				<p class="text-gray-300 text-lg leading-relaxed">
-					Ce projet avait pour but de créer un logiciel capable de récupérer les images des satellites depuis la base de données MAST et de pouvoir les manipuler pour améliorer leur visibilité et faire ressortir certaines caractéristiques.
-					J'ai fait deux aspects du projet : la partie de transformation d'images et la partie de récupération d'images depuis la base de données.
+					L’objectif de ce stage était de mettre à jour le site web existant, qui servait de vitrine à l’association.
+					Cette mise à jour comprenait trois grandes parties :
 				</p>
 			</div>
 
 			<!-- Contenu -->
 			<div class="grid md:grid-cols-3 gap-8 mb-12">
 				<div class="md:col-span-2 space-y-6">
-					<h2 class="text-xl font-semibold text-blue-300 flex items-center gap-2">
-						Transformation d'images
-					</h2>
-
-					<img
-						src="/projects/traitement_image/code1.png"
-						alt="Code transformation d'images"
-						class="w-full rounded-lg mb-4"
-					>
-
+					<h3 class="text-xl font-semibold text-cyan-300 mb-2">
+						La partie visible pour les adhérents
+					</h3>
 					<p class="text-gray-300 leading-relaxed">
-						Développement d'une classe Python permettant de charger, traiter et afficher des images astronomiques au format FITS, standard en astrophysique.
+						Le site devait permettre aux adhérents de consulter les prochaines randonnées, de visualiser les photos prises lors des précédentes sorties, ainsi que d’accéder à une carte interactive répertoriant les randonnées déjà effectuées. Il devait également offrir un accès au calendrier du quadrimestre en cours, aux articles de presse, ainsi qu’aux informations nécessaires pour l’inscription.
 					</p>
-
-					<ul class="space-y-2 ml-6 mt-4">
-						<li class="text-gray-300">
-							Charge les données scientifiques d'une image spatiale
-						</li>
-						<li class="text-gray-300">
-							Nettoie les valeurs invalides (NaN, infinis, valeurs négatives)
-						</li>
-						<li class="text-gray-300">
-							Corrige automatiquement l'orientation de l'image à partir des métadonnées
-						</li>
-						<li class="text-gray-300">
-							Applique une correction gamma pour améliorer le contraste
-						</li>
-						<li class="text-gray-300">
-							Normalise les données pour optimiser l'affichage
-						</li>
-						<li class="text-gray-300">
-							Permet l'application de différentes colormaps (rouge, vert, bleu, niveaux de gris)
-						</li>
-						<li class="text-gray-300">
-							Affiche le résultat avec Matplotlib
-						</li>
-					</ul>
-
-					<h2 class="text-xl font-semibold text-purple-300 flex items-center gap-2">
-						Récupération d'images
-					</h2>
-
-					<img
-						src="/projects/traitement_image/code2.png"
-						alt="Code récupération d'images"
-						class="w-full rounded-lg mb-4"
-					>
-
+					<h3 class="text-xl font-semibold text-cyan-300 mb-2">
+						La partie administration
+					</h3>
 					<p class="text-gray-300 leading-relaxed">
-						Développement d'un module Python permettant de rechercher et télécharger automatiquement des images astronomiques au format FITS depuis l'archive officielle MAST.
+						Cette section devait permettre aux membres de l’association d’ajouter ou de modifier les données liées aux randonnées, tout en minimisant les manipulations nécessaires afin de garantir une grande efficacité et une facilité d’utilisation. Il devait également être possible de gérer les membres de l’association, notamment en attribuant des droits d’accès, en ajoutant ou supprimant des adhérents, ainsi qu’en nommant ou retirant les capitaines. De plus il devait pouvoir gérer les articles ainsi que les documents d’inscriptions.
 					</p>
-
-					<ul class="space-y-2 ml-6 mt-4">
-						<li class="text-gray-300">
-							Interroge l'archive via astroquery
-						</li>
-						<li class="text-gray-300">
-							Recherche des observations publiques selon des critères précis (mission, cible)
-						</li>
-						<li class="text-gray-300">
-							Filtre les produits scientifiques pour ne conserver que les fichiers FITS, les données calibrées (niveau 2) et les images DRC
-						</li>
-						<li class="text-gray-300">
-							Sélectionne automatiquement un fichier par filtre scientifique
-						</li>
-						<li class="text-gray-300">
-							Télécharge les fichiers depuis l'API officielle
-						</li>
-						<li class="text-gray-300">
-							Suit la progression du téléchargement en temps réel
-						</li>
-					</ul>
-
-					<p class="text-gray-300 leading-relaxed mt-4">
-						Le module est intégré à une interface graphique avec PyQt6, grâce à un système de signaux permettant d'afficher le nom du fichier en cours, le début d'un téléchargement et le pourcentage d'avancement.
+					<h3 class="text-xl font-semibold text-cyan-300 mb-2">
+						La partie automatisation
+					</h3>
+					<p class="text-gray-300 leading-relaxed">
+						L’objectif de cette fonctionnalité était de permettre l’envoi automatique d’e-mails aux adhérents en cas d’annulation d’une randonnée. Par ailleurs, la gestion des randonnées, des articles, des adhérents, des membres et des capitaines nécessitait la mise en place d’une base de données capable de communiquer avec le site web.
 					</p>
 				</div>
 

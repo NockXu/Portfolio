@@ -7,7 +7,7 @@ const timeline = [
 		school: 'Lycée Sophie Berthelot',
 		description: 'Baccalauréat Spécialité Mathématiques, NSI',
 		details: [],
-		icon: 'i-heroicons-academic-cap',
+		icon: '',
 	},
 	{
 		year: '2023 - 2024',
@@ -15,7 +15,7 @@ const timeline = [
 		school: 'IUT de Calais',
 		description: 'Entrée au BUT Informatique, j\'y ai revu mes bases en programmation et en algorithmique, j\'ai découvert l\'aspect conception avant la programmation (MLD/MCD en base de données), j\'ai aussi appris de nouveau language comme le java, le c, le postgreSQL, c\'est aussi l\'année où j\'ai pour la première fois participé à des gros projets de groupe comme la création d\'un site web et la création d\'un jeu textuelle en C.',
 		details: [],
-		icon: 'i-heroicons-academic-cap',
+		icon: '',
 	},
 	{
 		year: '2024 - 2025',
@@ -23,15 +23,15 @@ const timeline = [
 		school: 'IUT de Calais',
 		description: 'Durant cette deuxième année, j\'ai appris à créer, sécuriser, documenter et utiliser une API REST, j\'ai aussi utilisé des frameworks comme Node.js, Vue.js, Symfony pour créer des applications web. De plus, j\'ai appris à créer des tests unitaires et à mettre en place une CI/CD pour le déploiement automatique de mes projets',
 		details: [],
-		icon: 'i-heroicons-cpu-chip',
+		icon: '',
 	},
 	{
 		year: '2025 - 2026',
 		title: 'BUT3',
 		school: 'IUT de Calais',
-		description: 'Pendant cette troisième année, j\'ai étudié le domaine de l\'ia en découvrent comment ',
+		description: 'Pendant cette troisième année, j\'ai étudié le domaine de l\'ia en découvrent comment faire du machine learning pour faire de la régression ainsi que de la classification. J\'ai aussi vue des notions sur le modèle transformer.',
 		details: [],
-		icon: 'i-heroicons-brain',
+		icon: '',
 	},
 ];
 

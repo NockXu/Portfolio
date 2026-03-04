@@ -4,15 +4,15 @@
 ============================================================ -->
 <script lang="ts">
 export const projectMeta = {
-	title: 'Application de traitement d\'image',
-	description: 'Le but de ce projet était de créer un logiciel capable de récupérer les images des satellites depuis la base de données MAST, de les transformer et d’améliorer leur coloration.',
-	tech: ['Python'],
-	image: '/projects/traitement_image/space.png',
-	github: '',
+	title: 'Xenon Space',
+	description: 'Description du jeu Xenon Space',
+	tech: ['Python', 'Pygame', 'IA'],
+	image: '/projects/xenon_space/menu.png',
+	github: 'https://github.com/nonov1012/xenon-space---Video-game',
 	demo: '',
-	category: 'Application',
+	category: 'Projet',
 	status: 'Terminé' as const,
-	year: '2024',
+	year: '2025',
 };
 </script>
 
@@ -100,89 +100,28 @@ export const projectMeta = {
 					{{ projectMeta.title }}
 				</h1>
 				<p class="text-gray-300 text-lg leading-relaxed">
-					Ce projet avait pour but de créer un logiciel capable de récupérer les images des satellites depuis la base de données MAST et de pouvoir les manipuler pour améliorer leur visibilité et faire ressortir certaines caractéristiques.
-					J'ai fait deux aspects du projet : la partie de transformation d'images et la partie de récupération d'images depuis la base de données.
+					Ce projet est un jeu vidéo développé en Python. Ce projet avait pour but de créer une IA qui pourrait jouer contre les joueurs ou contre une autre IA.
 				</p>
 			</div>
 
 			<!-- Contenu -->
 			<div class="grid md:grid-cols-3 gap-8 mb-12">
 				<div class="md:col-span-2 space-y-6">
-					<h2 class="text-xl font-semibold text-blue-300 flex items-center gap-2">
-						Transformation d'images
-					</h2>
-
 					<img
-						src="/projects/traitement_image/code1.png"
-						alt="Code transformation d'images"
-						class="w-full rounded-lg mb-4"
+						src="/projects/xenon_space/game.png"
+						alt="Capture d'écran du jeu"
+						class="rounded-lg mb-6"
 					>
 
-					<p class="text-gray-300 leading-relaxed">
-						Développement d'une classe Python permettant de charger, traiter et afficher des images astronomiques au format FITS, standard en astrophysique.
+					<p class="text-gray-300 text-lg leading-relaxed">
+						Dans ce projet, j'ai programmé les classes pour jouer les animations, la création du HUD et la logique de tour.
 					</p>
 
-					<ul class="space-y-2 ml-6 mt-4">
-						<li class="text-gray-300">
-							Charge les données scientifiques d'une image spatiale
-						</li>
-						<li class="text-gray-300">
-							Nettoie les valeurs invalides (NaN, infinis, valeurs négatives)
-						</li>
-						<li class="text-gray-300">
-							Corrige automatiquement l'orientation de l'image à partir des métadonnées
-						</li>
-						<li class="text-gray-300">
-							Applique une correction gamma pour améliorer le contraste
-						</li>
-						<li class="text-gray-300">
-							Normalise les données pour optimiser l'affichage
-						</li>
-						<li class="text-gray-300">
-							Permet l'application de différentes colormaps (rouge, vert, bleu, niveaux de gris)
-						</li>
-						<li class="text-gray-300">
-							Affiche le résultat avec Matplotlib
-						</li>
-					</ul>
-
-					<h2 class="text-xl font-semibold text-purple-300 flex items-center gap-2">
-						Récupération d'images
+					<h2 class="text-2xl font-bold text-cyan-300 mb-4">
+						L'IA créée
 					</h2>
-
-					<img
-						src="/projects/traitement_image/code2.png"
-						alt="Code récupération d'images"
-						class="w-full rounded-lg mb-4"
-					>
-
-					<p class="text-gray-300 leading-relaxed">
-						Développement d'un module Python permettant de rechercher et télécharger automatiquement des images astronomiques au format FITS depuis l'archive officielle MAST.
-					</p>
-
-					<ul class="space-y-2 ml-6 mt-4">
-						<li class="text-gray-300">
-							Interroge l'archive via astroquery
-						</li>
-						<li class="text-gray-300">
-							Recherche des observations publiques selon des critères précis (mission, cible)
-						</li>
-						<li class="text-gray-300">
-							Filtre les produits scientifiques pour ne conserver que les fichiers FITS, les données calibrées (niveau 2) et les images DRC
-						</li>
-						<li class="text-gray-300">
-							Sélectionne automatiquement un fichier par filtre scientifique
-						</li>
-						<li class="text-gray-300">
-							Télécharge les fichiers depuis l'API officielle
-						</li>
-						<li class="text-gray-300">
-							Suit la progression du téléchargement en temps réel
-						</li>
-					</ul>
-
-					<p class="text-gray-300 leading-relaxed mt-4">
-						Le module est intégré à une interface graphique avec PyQt6, grâce à un système de signaux permettant d'afficher le nom du fichier en cours, le début d'un téléchargement et le pourcentage d'avancement.
+					<p class="text-gray-300 text-lg leading-relaxed">
+						L'IA créée est une IA qui calcule son prochain coup en fonction de la situation actuelle du jeu. Elle prend en compte plusieurs facteurs comme la position des vaisseaux (alliés et ennemis), la santé des vaisseaux et les actions possibles (nombre de déplacements, possibilités d'attaques).
 					</p>
 				</div>
 
