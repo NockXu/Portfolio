@@ -19,46 +19,38 @@ const emit = defineEmits<{
 	'submit': [];
 }>();
 
-const localForm = reactive<Form>({
-	name: '',
-	email: '',
-	subject: '',
-	message: '',
-});
-
-// Synchroniser localForm avec props.form
-watch(() => props.form, (newForm) => {
-	Object.assign(localForm, newForm);
-}, { immediate: true, deep: true });
-
 const isValidEmail = computed(() => {
 	const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-	return emailRegex.test(localForm.email);
+	return emailRegex.test(props.form.email);
 });
 
 const emailError = computed(() => {
-	if (!localForm.email) return '';
+	if (!props.form.email) return '';
 	return isValidEmail.value ? '' : 'Veuillez entrer une adresse email valide';
 });
 
+const messageError = computed(() => {
+	if (!props.form.message) return '';
+	return props.form.message.trim().length >= 10 ? '' : 'Le message doit contenir au moins 10 caractères';
+});
+
 const isFormFilled = computed(() => {
-	return localForm.name.trim() !== ''
-		&& localForm.email.trim() !== ''
-		&& localForm.subject.trim() !== ''
-		&& localForm.message.trim() !== '';
+	return props.form.name.trim() !== ''
+		&& props.form.email.trim() !== ''
+		&& isValidEmail.value
+		&& props.form.subject.trim() !== ''
+		&& props.form.message.trim().length >= 10;
 });
 
 const updateForm = (key: keyof Form, value: string) => {
-	const updatedForm = { ...localForm, [key]: value };
-	Object.assign(localForm, updatedForm);
-	emit('update:form', updatedForm);
+	emit('update:form', { ...props.form, [key]: value });
 };
 </script>
 
 <template>
 	<UCard class="hover:scale-[1.02] transition-all duration-300 backdrop-blur-sm border-gray-700/50">
 		<UForm
-			:state="localForm"
+			:state="props.form"
 			class="space-y-6"
 			@submit="$emit('submit')"
 		>
@@ -72,7 +64,7 @@ const updateForm = (key: keyof Form, value: string) => {
 					<div class="relative group">
 						<div class="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-lg blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 						<UInput
-							:model-value="localForm.name"
+							:model-value="props.form.name"
 							placeholder="Votre nom"
 							size="xl"
 							color="secondary"
@@ -92,7 +84,7 @@ const updateForm = (key: keyof Form, value: string) => {
 					<div class="relative group">
 						<div class="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-lg blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 						<UInput
-							:model-value="localForm.email"
+							:model-value="props.form.email"
 							type="email"
 							placeholder="votre@email.com"
 							size="xl"
@@ -120,7 +112,7 @@ const updateForm = (key: keyof Form, value: string) => {
 				<div class="relative group">
 					<div class="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-lg blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 					<UInput
-						:model-value="localForm.subject"
+						:model-value="props.form.subject"
 						placeholder="Sujet de votre message"
 						size="xl"
 						color="secondary"
@@ -140,16 +132,22 @@ const updateForm = (key: keyof Form, value: string) => {
 				<div class="relative group">
 					<div class="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-lg blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 					<UTextarea
-						:model-value="localForm.message"
-						placeholder="Votre message..."
+						:model-value="props.form.message"
+						placeholder="Votre message (minimum 10 caractères)..."
 						:rows="8"
 						size="xl"
-						color="secondary"
+						:color="messageError ? 'error' : 'secondary'"
 						autoresize
 						class="relative transition-all duration-300 w-[100%]"
 						@update:model-value="updateForm('message', $event)"
 					/>
 				</div>
+				<p
+					v-if="messageError"
+					class="text-red-400 text-sm mt-1"
+				>
+					{{ messageError }}
+				</p>
 			</UFormGroup>
 
 			<div class="flex justify-center mt-8">

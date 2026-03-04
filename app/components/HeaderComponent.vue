@@ -65,7 +65,7 @@ const pageTitle = computed(() => {
 <template>
 	<UHeader
 
-		class="bg-gray-900/80 backdrop-blur-md border-b border-gray-800/50"
+		class="!relative bg-gray-900/80 backdrop-blur-md border-b border-gray-800/50 z-50"
 
 		:ui="{
 

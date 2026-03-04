@@ -7,7 +7,7 @@ export const projectMeta = {
 	title: 'Jeu VR',
 	description: 'Jeu VR fait en une semaine sur Unreal Engine dans un groupe de 6',
 	tech: ['Unreal Engine', 'Blueprint'],
-	image: '',
+	image: '/projects/vr/CrafCake_Affiche.png',
 	github: '',
 	demo: '',
 	category: 'Jeu',

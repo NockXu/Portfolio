@@ -4,7 +4,7 @@
 ============================================================ -->
 <script lang="ts">
 export const projectMeta = {
-	title: 'Recréation du site de l\'association Passion Rando',
+	title: 'Recréation du site de l\'association Rando Passion',
 	description: 'Refonte complète du site de l\'association pour le rendre dynamique et permettre le partage des calendriers de randonnées',
 	tech: ['php', 'mysql', 'html', 'css', 'javascript'],
 	image: '/projects/rando_passion/accueil.png',

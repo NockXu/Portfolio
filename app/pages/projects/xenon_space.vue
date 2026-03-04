@@ -10,7 +10,7 @@ export const projectMeta = {
 	image: '/projects/xenon_space/menu.png',
 	github: 'https://github.com/nonov1012/xenon-space---Video-game',
 	demo: '',
-	category: 'Projet',
+	category: 'Jeu',
 	status: 'Terminé' as const,
 	year: '2025',
 };

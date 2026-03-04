@@ -66,26 +66,26 @@ const hobbies = [
 // Reactive state for timeline interaction
 const activeTimelineIndex = ref(0);
 const navigationDirection = ref<'left' | 'right'>('right');
-const activeElement = ref<any>(null);
+const scrollContainer = ref<HTMLElement | null>(null);
+const itemRefs = ref<HTMLElement[]>([]);
 
-// Watch for index changes and scroll to element
+const setItemRef = (el: any, index: number) => {
+	if (el) itemRefs.value[index] = el.$el ?? el;
+};
+
+// Watch for index changes and scroll to center the active element
 watch(activeTimelineIndex, (newIndex) => {
 	nextTick(() => {
-		if (activeElement.value) {
-			const container = activeElement.value.$el?.closest('.overflow-y-auto') || activeElement.value.closest('.overflow-y-auto');
-			if (container) {
-				const element = activeElement.value.$el || activeElement.value;
-				const elementTop = element.offsetTop;
-				const containerHeight = container.clientHeight;
-				const elementHeight = element.clientHeight;
-				const scrollTop = elementTop - (containerHeight / 2) + (elementHeight / 2);
+		const container = scrollContainer.value;
+		const element = itemRefs.value[newIndex];
+		if (!container || !element) return;
 
-				container.scrollTo({
-					top: scrollTop,
-					behavior: 'smooth',
-				});
-			}
-		}
+		const containerHeight = container.clientHeight;
+		const elementTop = element.offsetTop;
+		const elementHeight = element.offsetHeight;
+		const scrollTop = elementTop - containerHeight / 2 + elementHeight / 2;
+
+		container.scrollTo({ top: scrollTop, behavior: 'smooth' });
 	});
 });
 
@@ -119,41 +119,36 @@ const goToIndex = (index: number) => {
 				<h1 class="text-5xl md:text-7xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400 mb-6 animate-pulse">
 					À Propos
 				</h1>
-				<UDivider class="w-32" />
+				<div class="h-1 w-1/6 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full mb-8" />
 			</div>
 
 			<!-- Section 1: Image et Description Personnelle -->
 			<UCard class="mb-20 bg-gradient-to-r from-gray-800/50 to-gray-900/50 backdrop-blur-sm border-gray-700">
-				<template #header>
-					<h2 class="text-3xl font-semibold text-blue-300">
-						Qui suis-je ?
-					</h2>
-				</template>
-
 				<div class="grid md:grid-cols-2 gap-8 items-center">
 					<!-- Image placeholder - vous pouvez remplacer avec votre vraie photo -->
 					<div class="relative group">
 						<div class="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-500 rounded-2xl blur-xl opacity-50 group-hover:opacity-75 transition-opacity" />
 						<div class="relative bg-gray-800 rounded-2xl p-8 border border-gray-700">
 							<div class="aspect-square bg-gradient-to-br from-blue-600/20 to-purple-600/20 rounded-xl flex items-center justify-center">
-								<UIcon
-									name="i-heroicons-user-circle"
-									class="w-32 h-32 text-blue-400"
-								/>
+								<img src="/photo.jpg">
 							</div>
-							<p class="text-center text-gray-400 mt-4 text-sm">
-								Votre photo ici
-							</p>
 						</div>
 					</div>
 
 					<!-- Description -->
 					<div class="space-y-4">
+						<h2 class="text-3xl font-semibold text-blue-300">
+							Qui suis-je ?
+						</h2>
+						<div class="h-1 w-1/6 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full mb-8" />
 						<p class="text-gray-300 text-lg leading-relaxed">
 							Passionné par l'informatique depuis tout petit, je me suis spécialisé dans le développement d'applications.
 						</p>
-						<p class="text-gray-400 leading-relaxed">
+						<p class="text-gray-300 text-lg leading-relaxed">
 							Étudiant en troisième année de BUT Informatique à l'IUT de Calais, je porte mon intérêt vers les technologies d'ia.
+						</p>
+						<p class="text-gray-300 text-lg leading-relaxed">
+							Je pense être quelqu'un de calme et rigoureux, qui aime se poser des questions et chercher à comprendre.
 						</p>
 					</div>
 				</div>
@@ -164,6 +159,7 @@ const goToIndex = (index: number) => {
 				<h2 class="text-3xl font-semibold text-purple-300 mb-8">
 					Parcours Scolaire
 				</h2>
+				<div class="h-1 w-1/6 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full mb-8" />
 
 				<!-- Timeline Navigation with Arrows -->
 				<div class="flex items-center justify-center gap-8 mb-8 top-24 from-gray-900 via-blue-950 to-gray-900 py-4 z-10 backdrop-blur-sm rounded-lg">
@@ -215,14 +211,17 @@ const goToIndex = (index: number) => {
 				</div>
 
 				<!-- Timeline Content with Scroll -->
-				<div class="timeline-scroll-container relative max-h-[28rem] overflow-y-auto overflow-x-hidden scrollbar-visible scrollbar-thumb-purple-500 scrollbar-track-gray-800 rounded-lg p-4 pt-32 pb-32">
+				<div
+					ref="scrollContainer"
+					class="timeline-scroll-container relative max-h-[28rem] overflow-y-auto overflow-x-hidden scrollbar-visible scrollbar-thumb-purple-500 scrollbar-track-gray-800 rounded-lg p-4 pt-32 pb-32"
+				>
 					<div class="relative min-h-full">
 						<div class="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gradient-to-b from-purple-500 to-blue-500" />
 
 						<div
 							v-for="(item, index) in timeline"
 							:key="index"
-							:ref="el => { if (index === activeTimelineIndex) activeElement = el }"
+							:ref="el => setItemRef(el, index)"
 							:class="[
 								'relative flex items-center mb-16 transition-all duration-500 min-h-48',
 								activeTimelineIndex === index ? 'opacity-100 scale-100' : 'opacity-40 scale-95',
@@ -292,39 +291,28 @@ const goToIndex = (index: number) => {
 				</div>
 			</div>
 
-			<!-- Section 3: Hobbies -->
+			<!-- Section Vidéo -->
 			<div class="mb-20">
 				<h2 class="text-3xl font-semibold text-cyan-300 mb-8">
-					Centres d'Intérêt
+					Vidéo de Présentation de mon BUT informatique
 				</h2>
+				<div class="h-1 w-1/6 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full mb-8" />
 
-				<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-					<UCard
-						v-for="hobby in hobbies"
-						:key="hobby.name"
-						class="group hover:scale-105 transition-all duration-300 bg-gradient-to-br from-gray-800/50 to-gray-900/50 border-gray-700 hover:border-cyan-400/50"
-					>
-						<div class="text-center space-y-4">
-							<div
-								:class="[
-									'w-16 h-16 mx-auto rounded-full flex items-center justify-center transition-all duration-300',
-									`bg-${hobby.color}-500/20 group-hover:bg-${hobby.color}-500/30`,
-								]"
+				<UCard class="bg-gray-800/50 border-gray-700 overflow-hidden">
+					<div class="relative w-full aspect-video">
+						<video
+							controls
+							class="w-full h-full object-cover"
+							poster=""
+						>
+							<source
+								src="/180/mon_BUT_180.mp4"
+								type="video/mp4"
 							>
-								<UIcon
-									:name="hobby.icon"
-									:class="`w-8 h-8 text-${hobby.color}-400`"
-								/>
-							</div>
-							<h3 class="text-lg font-semibold text-white">
-								{{ hobby.name }}
-							</h3>
-							<p class="text-gray-400 text-sm">
-								{{ hobby.description }}
-							</p>
-						</div>
-					</UCard>
-				</div>
+							Votre navigateur ne supporte pas la lecture de vidéos.
+						</video>
+					</div>
+				</UCard>
 			</div>
 		</div>
 	</div>

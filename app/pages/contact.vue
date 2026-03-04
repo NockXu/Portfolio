@@ -11,7 +11,7 @@
 					:form="form"
 					:is-submitting="isSubmitting"
 					:submit-status="submitStatus"
-					@update:form="form = $event"
+					@update:form="Object.assign(form, $event)"
 					@submit="handleSubmit"
 				/>
 
@@ -42,21 +42,22 @@ const validateForm = () => {
 	return true;
 };
 
-const handleSubmit = async () => {
+const handleSubmit = () => {
 	if (!validateForm()) {
 		submitStatus.value = 'error';
 		setTimeout(() => submitStatus.value = 'idle', 3000);
 		return;
 	}
 
-	isSubmitting.value = true;
-	submitStatus.value = 'idle';
+	const to = 'gabriel.dav@outlook.fr';
+	const subject = encodeURIComponent(form.subject);
+	const body = encodeURIComponent(
+		`Nom : ${form.name}\nEmail : ${form.email}\n\n${form.message}`,
+	);
 
-	await new Promise(resolve => setTimeout(resolve, 2000));
+	window.location.href = `mailto:${to}?subject=${subject}&body=${body}`;
 
 	submitStatus.value = 'success';
-	isSubmitting.value = false;
-
 	setTimeout(() => {
 		Object.assign(form, { name: '', email: '', subject: '', message: '' });
 		submitStatus.value = 'idle';
@@ -74,13 +75,13 @@ const contactInfo = [
 ];
 </script>
 
-	<style scoped>
-	@keyframes pulse {
-		0%, 100% { opacity: 1; }
-		50% { opacity: 0.8; }
-	}
+<style scoped>
+@keyframes pulse {
+	0%, 100% { opacity: 1; }
+	50% { opacity: 0.8; }
+}
 
-	.animate-pulse {
-		animation: pulse 3s ease-in-out infinite;
-	}
-	</style>
+.animate-pulse {
+	animation: pulse 3s ease-in-out infinite;
+}
+</style>
