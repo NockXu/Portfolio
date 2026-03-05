@@ -300,17 +300,16 @@ const goToIndex = (index: number) => {
 
 				<UCard class="bg-gray-800/50 border-gray-700 overflow-hidden">
 					<div class="relative w-full aspect-video">
-						<video
-							controls
-							class="w-full h-full object-cover"
-							poster=""
-						>
-							<source
-								src="/180/mon_BUT_180.mp4"
-								type="video/mp4"
-							>
-							Votre navigateur ne supporte pas la lecture de vidéos.
-						</video>
+						<iframe
+							width="100%"
+							height="100%"
+							src="https://www.youtube.com/embed/5X32tMgCQmo"
+							title="Vidéo de présentation du BUT informatique"
+							frameborder="0"
+							allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+							allowfullscreen
+							class="w-full h-full"
+						/>
 					</div>
 				</UCard>
 			</div>
