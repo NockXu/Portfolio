@@ -1,67 +1,41 @@
 <script setup lang="ts">
+const { t } = useI18n();
+
 // Timeline data for education
-const timeline = [
+const timeline = computed(() => [
 	{
 		year: '2020 - 2023',
-		title: 'Baccalauréat',
-		school: 'Lycée Sophie Berthelot',
-		description: 'Baccalauréat Spécialité Mathématiques, NSI',
+		title: t('about.timelineItems.bac.title'),
+		school: t('about.timelineItems.bac.school'),
+		description: t('about.timelineItems.bac.description'),
 		details: [],
 		icon: '',
 	},
 	{
 		year: '2023 - 2024',
-		title: 'BUT1',
-		school: 'IUT de Calais',
-		description: 'Entrée au BUT Informatique, j\'y ai revu mes bases en programmation et en algorithmique, j\'ai découvert l\'aspect conception avant la programmation (MLD/MCD en base de données), j\'ai aussi appris de nouveau language comme le java, le c, le postgreSQL, c\'est aussi l\'année où j\'ai pour la première fois participé à des gros projets de groupe comme la création d\'un site web et la création d\'un jeu textuelle en C.',
+		title: t('about.timelineItems.but1.title'),
+		school: t('about.timelineItems.but1.school'),
+		description: t('about.timelineItems.but1.description'),
 		details: [],
 		icon: '',
 	},
 	{
 		year: '2024 - 2025',
-		title: 'BUT2',
-		school: 'IUT de Calais',
-		description: 'Durant cette deuxième année, j\'ai appris à créer, sécuriser, documenter et utiliser une API REST, j\'ai aussi utilisé des frameworks comme Node.js, Vue.js, Symfony pour créer des applications web. De plus, j\'ai appris à créer des tests unitaires et à mettre en place une CI/CD pour le déploiement automatique de mes projets',
+		title: t('about.timelineItems.but2.title'),
+		school: t('about.timelineItems.but2.school'),
+		description: t('about.timelineItems.but2.description'),
 		details: [],
 		icon: '',
 	},
 	{
 		year: '2025 - 2026',
-		title: 'BUT3',
-		school: 'IUT de Calais',
-		description: 'Pendant cette troisième année, j\'ai étudié le domaine de l\'ia en découvrent comment faire du machine learning pour faire de la régression ainsi que de la classification. J\'ai aussi vue des notions sur le modèle transformer.',
+		title: t('about.timelineItems.but3.title'),
+		school: t('about.timelineItems.but3.school'),
+		description: t('about.timelineItems.but3.description'),
 		details: [],
 		icon: '',
 	},
-];
-
-// Hobbies data
-const hobbies = [
-	{
-		name: 'Développement personnel',
-		icon: 'i-heroicons-code-bracket',
-		description: 'Projets open-source et exploration de nouvelles technologies',
-		color: 'blue',
-	},
-	{
-		name: 'Photographie',
-		icon: 'i-heroicons-camera',
-		description: 'Capture de paysages et moments de vie',
-		color: 'green',
-	},
-	{
-		name: 'Musique',
-		icon: 'i-heroicons-musical-note',
-		description: 'Écoute et découverte de nouveaux genres',
-		color: 'purple',
-	},
-	{
-		name: 'Sport',
-		icon: 'i-heroicons-heart',
-		description: 'Course à pied et fitness pour rester équilibré',
-		color: 'red',
-	},
-];
+]);
 
 // Reactive state for timeline interaction
 const activeTimelineIndex = ref(0);
@@ -89,7 +63,6 @@ watch(activeTimelineIndex, (newIndex) => {
 	});
 });
 
-// Functions to handle navigation with direction tracking
 const navigateLeft = () => {
 	if (activeTimelineIndex.value > 0) {
 		navigationDirection.value = 'left';
@@ -98,7 +71,7 @@ const navigateLeft = () => {
 };
 
 const navigateRight = () => {
-	if (activeTimelineIndex.value < timeline.length - 1) {
+	if (activeTimelineIndex.value < timeline.value.length - 1) {
 		navigationDirection.value = 'right';
 		activeTimelineIndex.value++;
 	}
@@ -117,7 +90,7 @@ const goToIndex = (index: number) => {
 			<div class="mb-20 relative">
 				<div class="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-purple-500/20 blur-3xl -z-10" />
 				<h1 class="text-5xl md:text-7xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400 mb-6 animate-pulse">
-					À Propos
+					{{ $t('about.title') }}
 				</h1>
 				<div class="h-1 w-1/6 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full mb-8" />
 			</div>
@@ -125,7 +98,6 @@ const goToIndex = (index: number) => {
 			<!-- Section 1: Image et Description Personnelle -->
 			<UCard class="mb-20 bg-gradient-to-r from-gray-800/50 to-gray-900/50 backdrop-blur-sm border-gray-700">
 				<div class="grid md:grid-cols-2 gap-8 items-center">
-					<!-- Image placeholder - vous pouvez remplacer avec votre vraie photo -->
 					<div class="relative group">
 						<div class="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-500 rounded-2xl blur-xl opacity-50 group-hover:opacity-75 transition-opacity" />
 						<div class="relative bg-gray-800 rounded-2xl p-8 border border-gray-700">
@@ -135,20 +107,19 @@ const goToIndex = (index: number) => {
 						</div>
 					</div>
 
-					<!-- Description -->
 					<div class="space-y-4">
 						<h2 class="text-3xl font-semibold text-blue-300">
-							Qui suis-je ?
+							{{ $t('about.who') }}
 						</h2>
 						<div class="h-1 w-1/6 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full mb-8" />
 						<p class="text-gray-300 text-lg leading-relaxed">
-							Passionné par l'informatique depuis tout petit, je me suis spécialisé dans le développement d'applications.
+							{{ $t('about.desc1') }}
 						</p>
 						<p class="text-gray-300 text-lg leading-relaxed">
-							Étudiant en troisième année de BUT Informatique à l'IUT de Calais, je porte mon intérêt vers les technologies d'ia.
+							{{ $t('about.desc2') }}
 						</p>
 						<p class="text-gray-300 text-lg leading-relaxed">
-							Je pense être quelqu'un de calme et rigoureux, qui aime se poser des questions et chercher à comprendre.
+							{{ $t('about.desc3') }}
 						</p>
 					</div>
 				</div>
@@ -157,7 +128,7 @@ const goToIndex = (index: number) => {
 			<!-- Section 2: Frise Chronologique Interactive -->
 			<div class="mb-20">
 				<h2 class="text-3xl font-semibold text-purple-300 mb-8">
-					Parcours Scolaire
+					{{ $t('about.timeline') }}
 				</h2>
 				<div class="h-1 w-1/6 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full mb-8" />
 
@@ -294,7 +265,7 @@ const goToIndex = (index: number) => {
 			<!-- Section Vidéo -->
 			<div class="mb-20">
 				<h2 class="text-3xl font-semibold text-cyan-300 mb-8">
-					Vidéo de Présentation de mon BUT informatique
+					{{ $t('about.video') }}
 				</h2>
 				<div class="h-1 w-1/6 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full mb-8" />
 
@@ -303,8 +274,8 @@ const goToIndex = (index: number) => {
 						<iframe
 							width="100%"
 							height="100%"
-							src="https://www.youtube.com/embed/5X32tMgCQmo"
-							title="Vidéo de présentation du BUT informatique"
+							src="https://www.youtube-nocookie.com/embed/5X32tMgCQmo?rel=0&modestbranding=1"
+							:title="$t('about.videoTitle')"
 							frameborder="0"
 							allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
 							allowfullscreen
@@ -313,107 +284,318 @@ const goToIndex = (index: number) => {
 					</div>
 				</UCard>
 			</div>
+
+			<!-- Section Compétences -->
+			<div class="mb-20">
+				<h2 class="text-3xl font-semibold text-green-300 mb-8">
+					{{ $t('about.skills') }}
+				</h2>
+				<div class="h-1 w-1/6 bg-gradient-to-r from-green-500 to-blue-500 rounded-full mb-8" />
+
+				<UCard class="bg-gray-800/50 border-gray-700">
+					<div class="p-8">
+						<div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8">
+							<!-- Langages -->
+							<div class="flex flex-col items-center group">
+								<div class="w-16 h-16 bg-gradient-to-br from-blue-600 to-blue-400 rounded-xl flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+									<UIcon
+										name="i-heroicons-code-bracket"
+										class="w-8 h-8 text-white"
+									/>
+								</div>
+								<span class="text-gray-300 text-sm text-center">JavaScript</span>
+							</div>
+							<div class="flex flex-col items-center group">
+								<div class="w-16 h-16 bg-gradient-to-br from-green-600 to-green-400 rounded-xl flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+									<img
+										src="/icones/nodejs.png"
+										alt="Node.js"
+										class="w-8 h-8"
+									>
+								</div>
+								<span class="text-gray-300 text-sm text-center">Node.js</span>
+							</div>
+							<div class="flex flex-col items-center group">
+								<div class="w-16 h-16 bg-gradient-to-br from-cyan-600 to-cyan-400 rounded-xl flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+									<UIcon
+										name="i-heroicons-code-bracket"
+										class="w-8 h-8 text-white"
+									/>
+								</div>
+								<span class="text-gray-300 text-sm text-center">TypeScript</span>
+							</div>
+							<div class="flex flex-col items-center group">
+								<div class="w-16 h-16 bg-gradient-to-br from-red-600 to-red-400 rounded-xl flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+									<img
+										src="/icones/java.png"
+										alt="Java"
+										class="w-8 h-8"
+									>
+								</div>
+								<span class="text-gray-300 text-sm text-center">Java</span>
+							</div>
+							<div class="flex flex-col items-center group">
+								<div class="w-16 h-16 bg-gradient-to-br from-blue-700 to-blue-500 rounded-xl flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+									<UIcon
+										name="i-simple-icons-c"
+										class="w-8 h-8 text-white"
+									/>
+								</div>
+								<span class="text-gray-300 text-sm text-center">C/C++</span>
+							</div>
+							<div class="flex flex-col items-center group">
+								<div class="w-16 h-16 bg-gradient-to-br from-purple-700 to-purple-500 rounded-xl flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+									<UIcon
+										name="i-simple-icons-csharp"
+										class="w-8 h-8 text-white"
+									/>
+								</div>
+								<span class="text-gray-300 text-sm text-center">C#</span>
+							</div>
+							<div class="flex flex-col items-center group">
+								<div class="w-16 h-16 bg-gradient-to-br from-orange-500 to-orange-300 rounded-xl flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+									<UIcon
+										name="i-simple-icons-html5"
+										class="w-8 h-8 text-white"
+									/>
+								</div>
+								<span class="text-gray-300 text-sm text-center">HTML</span>
+							</div>
+							<div class="flex flex-col items-center group">
+								<div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-300 rounded-xl flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+									<UIcon
+										name="i-simple-icons-css3"
+										class="w-8 h-8 text-white"
+									/>
+								</div>
+								<span class="text-gray-300 text-sm text-center">CSS</span>
+							</div>
+
+							<!-- Frameworks -->
+							<div class="flex flex-col items-center group">
+								<div class="w-16 h-16 bg-gradient-to-br from-green-500 to-emerald-400 rounded-xl flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+									<img
+										src="/icones/vuejs.png"
+										alt="Vue.js"
+										class="w-8 h-8"
+									>
+								</div>
+								<span class="text-gray-300 text-sm text-center">Vue.js</span>
+							</div>
+							<div class="flex flex-col items-center group">
+								<div class="w-16 h-16 bg-gradient-to-br from-cyan-500 to-blue-400 rounded-xl flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+									<UIcon
+										name="i-simple-icons-react"
+										class="w-8 h-8 text-white"
+									/>
+								</div>
+								<span class="text-gray-300 text-sm text-center">React</span>
+							</div>
+							<div class="flex flex-col items-center group">
+								<div class="w-16 h-16 bg-gradient-to-br from-orange-600 to-red-500 rounded-xl flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+									<img
+										src="/icones/nuxt.png"
+										alt="Nuxt.js"
+										class="w-8 h-8"
+									>
+								</div>
+								<span class="text-gray-300 text-sm text-center">Nuxt.js</span>
+							</div>
+							<div class="flex flex-col items-center group">
+								<div class="w-16 h-16 bg-gradient-to-br from-blue-600 to-indigo-500 rounded-xl flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+									<UIcon
+										name="i-simple-icons-tailwindcss"
+										class="w-8 h-8 text-white"
+									/>
+								</div>
+								<span class="text-gray-300 text-sm text-center">Tailwind</span>
+							</div>
+
+							<!-- Bases de données -->
+							<div class="flex flex-col items-center group">
+								<div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-300 rounded-xl flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+									<UIcon
+										name="i-simple-icons-postgresql"
+										class="w-8 h-8 text-white"
+									/>
+								</div>
+								<span class="text-gray-300 text-sm text-center">PostgreSQL</span>
+							</div>
+							<div class="flex flex-col items-center group">
+								<div class="w-16 h-16 bg-gradient-to-br from-green-500 to-green-300 rounded-xl flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+									<UIcon
+										name="i-simple-icons-mongodb"
+										class="w-8 h-8 text-white"
+									/>
+								</div>
+								<span class="text-gray-300 text-sm text-center">MongoDB</span>
+							</div>
+							<div class="flex flex-col items-center group">
+								<div class="w-16 h-16 bg-gradient-to-br from-orange-500 to-red-400 rounded-xl flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+									<UIcon
+										name="i-simple-icons-prisma"
+										class="w-8 h-8 text-white"
+									/>
+								</div>
+								<span class="text-gray-300 text-sm text-center">Prisma</span>
+							</div>
+							<div class="flex flex-col items-center group">
+								<div class="w-16 h-16 bg-gradient-to-br from-blue-600 to-blue-400 rounded-xl flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+									<UIcon
+										name="i-simple-icons-mysql"
+										class="w-8 h-8 text-white"
+									/>
+								</div>
+								<span class="text-gray-300 text-sm text-center">MySQL</span>
+							</div>
+
+							<!-- Outils -->
+							<div class="flex flex-col items-center group">
+								<div class="w-16 h-16 bg-gradient-to-br from-gray-600 to-gray-400 rounded-xl flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+									<UIcon
+										name="i-simple-icons-git"
+										class="w-8 h-8 text-white"
+									/>
+								</div>
+								<span class="text-gray-300 text-sm text-center">Git</span>
+							</div>
+							<div class="flex flex-col items-center group">
+								<div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-orange-400 rounded-xl flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+									<UIcon
+										name="i-simple-icons-docker"
+										class="w-8 h-8 text-white"
+									/>
+								</div>
+								<span class="text-gray-300 text-sm text-center">Docker</span>
+							</div>
+							<div class="flex flex-col items-center group">
+								<div class="w-16 h-16 bg-gradient-to-br from-cyan-500 to-cyan-300 rounded-xl flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+									<UIcon
+										name="i-simple-icons-kubernetes"
+										class="w-8 h-8 text-white"
+									/>
+								</div>
+								<span class="text-gray-300 text-sm text-center">Kubernetes</span>
+							</div>
+							<div class="flex flex-col items-center group">
+								<div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-400 rounded-xl flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+									<UIcon
+										name="i-simple-icons-figma"
+										class="w-8 h-8 text-white"
+									/>
+								</div>
+								<span class="text-gray-300 text-sm text-center">Figma</span>
+							</div>
+							<div class="flex flex-col items-center group">
+								<div class="w-16 h-16 bg-gradient-to-br from-red-600 to-red-400 rounded-xl flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+									<UIcon
+										name="i-simple-icons-unrealengine"
+										class="w-8 h-8 text-white"
+									/>
+								</div>
+								<span class="text-gray-300 text-sm text-center">Unreal</span>
+							</div>
+						</div>
+					</div>
+				</UCard>
+			</div>
 		</div>
 	</div>
 </template>
 
-  <style scoped>
-  /* Fondu progressif en haut et en bas du conteneur de la frise */
-  .timeline-scroll-container {
-    mask-image: linear-gradient(
-      to bottom,
-      transparent 0%,
-      black 15%,
-      black 85%,
-      transparent 100%
-    );
-    -webkit-mask-image: linear-gradient(
-      to bottom,
-      transparent 0%,
-      black 15%,
-      black 85%,
-      transparent 100%
-    );
-  }
+<style scoped>
+.timeline-scroll-container {
+  mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    black 15%,
+    black 85%,
+    transparent 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    black 15%,
+    black 85%,
+    transparent 100%
+  );
+}
 
-  @keyframes pulse {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.8; }
-  }
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.8; }
+}
 
-  .animate-pulse {
-    animation: pulse 3s ease-in-out infinite;
-  }
+.animate-pulse {
+  animation: pulse 3s ease-in-out infinite;
+}
 
-  /* Animation pour la transition de l'année vers la droite */
-  .year-slide-right-enter-active,
-  .year-slide-right-leave-active {
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  }
+.year-slide-right-enter-active,
+.year-slide-right-leave-active {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
 
-  .year-slide-right-enter-from {
-    opacity: 0;
-    transform: translateY(20px) scale(0.8);
-  }
+.year-slide-right-enter-from {
+  opacity: 0;
+  transform: translateY(20px) scale(0.8);
+}
 
-  .year-slide-right-leave-to {
-    opacity: 0;
-    transform: translateY(-20px) scale(0.8);
-  }
+.year-slide-right-leave-to {
+  opacity: 0;
+  transform: translateY(-20px) scale(0.8);
+}
 
-  .year-slide-right-enter-to,
-  .year-slide-right-leave-from {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
+.year-slide-right-enter-to,
+.year-slide-right-leave-from {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
 
-  /* Animation pour la transition de l'année vers la gauche (effet inversé) */
-  .year-slide-left-enter-active,
-  .year-slide-left-leave-active {
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  }
+.year-slide-left-enter-active,
+.year-slide-left-leave-active {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
 
-  .year-slide-left-enter-from {
-    opacity: 0;
-    transform: translateY(-20px) scale(0.8);
-  }
+.year-slide-left-enter-from {
+  opacity: 0;
+  transform: translateY(-20px) scale(0.8);
+}
 
-  .year-slide-left-leave-to {
-    opacity: 0;
-    transform: translateY(20px) scale(0.8);
-  }
+.year-slide-left-leave-to {
+  opacity: 0;
+  transform: translateY(20px) scale(0.8);
+}
 
-  .year-slide-left-enter-to,
-  .year-slide-left-leave-from {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
+.year-slide-left-enter-to,
+.year-slide-left-leave-from {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
 
-  /* Styles pour la barre de scroll toujours visible */
-  .scrollbar-visible {
-    scrollbar-width: thin;
-    scrollbar-color: rgb(168 85 247) rgb(31 41 55);
-  }
+.scrollbar-visible {
+  scrollbar-width: thin;
+  scrollbar-color: rgb(168 85 247) rgb(31 41 55);
+}
 
-  .scrollbar-visible::-webkit-scrollbar {
-    width: 8px;
-  }
+.scrollbar-visible::-webkit-scrollbar {
+  width: 8px;
+}
 
-  .scrollbar-visible::-webkit-scrollbar-track {
-    background: rgb(31 41 55);
-    border-radius: 4px;
-  }
+.scrollbar-visible::-webkit-scrollbar-track {
+  background: rgb(31 41 55);
+  border-radius: 4px;
+}
 
-  .scrollbar-visible::-webkit-scrollbar-thumb {
-    background: rgb(168 85 247);
-    border-radius: 4px;
-  }
+.scrollbar-visible::-webkit-scrollbar-thumb {
+  background: rgb(168 85 247);
+  border-radius: 4px;
+}
 
-  .scrollbar-visible::-webkit-scrollbar-thumb:hover {
-    background: rgb(196 181 253);
-  }
+.scrollbar-visible::-webkit-scrollbar-thumb:hover {
+  background: rgb(196 181 253);
+}
 
-  .scrollbar-visible::-webkit-scrollbar-corner {
-    background: rgb(31 41 55);
-  }
-  </style>
+.scrollbar-visible::-webkit-scrollbar-corner {
+  background: rgb(31 41 55);
+}
+</style>
