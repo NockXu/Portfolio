@@ -121,25 +121,21 @@
       "intro": "This project aimed to create software capable of retrieving satellite images from the MAST database and processing them to improve visibility and highlight specific features. I worked on two aspects: image transformation and image retrieval from the database.",
       "part1Title": "Image transformation",
       "part1": "Development of a Python class to load, process and display astronomical images in FITS format, the standard in astrophysics.",
-      "part1Items": [
-        "Loads scientific data from a space image",
-        "Cleans invalid values (NaN, infinities, negative values)",
-        "Automatically corrects image orientation from metadata",
-        "Applies gamma correction to improve contrast",
-        "Normalizes data to optimize display",
-        "Supports different colormaps (red, green, blue, grayscale)",
-        "Displays the result using Matplotlib"
-      ],
+      "part1Items": "Loads scientific data from a space image",
+      "part1Items2": "Cleans invalid values (NaN, infinities, negative values)",
+      "part1Items3": "Automatically corrects image orientation from metadata",
+      "part1Items4": "Applies gamma correction to improve contrast",
+      "part1Items5": "Normalizes data to optimize display",
+      "part1Items6": "Supports different colormaps (red, green, blue, grayscale)",
+      "part1Items7": "Displays the result using Matplotlib",
       "part2Title": "Image retrieval",
       "part2": "Development of a Python module to automatically search and download astronomical images in FITS format from the official MAST archive.",
-      "part2Items": [
-        "Queries the archive via astroquery",
-        "Searches public observations by specific criteria (mission, target)",
-        "Filters scientific products to keep only FITS files, calibrated data (level 2) and DRC images",
-        "Automatically selects one file per scientific filter",
-        "Downloads files from the official API",
-        "Tracks download progress in real time"
-      ],
+      "part2Items": "Queries the archive via astroquery",
+      "part2Items2": "Searches public observations by specific criteria (mission, target)",
+      "part2Items3": "Filters scientific products to keep only FITS files, calibrated data (level 2) and DRC images",
+      "part2Items4": "Automatically selects one file per scientific filter",
+      "part2Items5": "Downloads files from the official API",
+      "part2Items6": "Tracks download progress in real time",
       "part2End": "The module is integrated into a graphical interface built with PyQt6, using a signal system to display the current file name, the start of a download, and the completion percentage."
     },
     "vr_game": {
