@@ -6,7 +6,7 @@
 export const projectMeta = {
 	title: 'Xenon Space',
 	description: 'Description du jeu Xenon Space',
-	tech: ['Python', 'Pygame', 'IA'],
+	tech: ['Python', 'Pygame', 'IA', 'Docusorus'],
 	image: '/projects/xenon_space/menu.png',
 	github: 'https://github.com/nonov1012/xenon-space---Video-game',
 	demo: '',

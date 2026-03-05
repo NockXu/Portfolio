@@ -147,7 +147,7 @@ onMounted(() => {
 
 			<div class="flex-1 min-h-[28rem] overflow-hidden">
 				<img
-					src="/projects/rando_passion/accueil.png"
+					src="/projects/borne_arcade/borne.jpg"
 					alt="Aperçu projet"
 					class="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
 				>

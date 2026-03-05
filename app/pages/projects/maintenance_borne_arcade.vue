@@ -7,7 +7,7 @@ export const projectMeta = {
 	title: 'Projet de maintenance d\'une borne arcade de l\'IUT',
 	description: 'Pendant deux semaines, j\'ai du faire la maintenance d\'une borne arcade de l\'IUT pour la mettre à jour et ajouter un nouveau jeu.',
 	tech: [],
-	image: '',
+	image: '/projects/borne_arcade/borne.jpg',
 	github: 'https://github.com/TarzanHR/arcade_maintenance',
 	demo: '',
 	category: 'Maintenance',
