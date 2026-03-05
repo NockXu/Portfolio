@@ -5,5 +5,154 @@
         "about": "About",
         "projects": "Projects",
         "contact": "Contact"
+    },
+    "index": {
+        "title": "DAVID Gabriel",
+        "subtitle": "Here is my e-resume, my projects and my professional project",
+        "downloadCV": "Download my CV",
+        "about": {
+            "title": "About me",
+            "text1": "Computer science student at IUT of Calais for more than 2 years.",
+            "text2": "I live in Calais and I am 20 years old. I am passionate about software development. I am also calm, rigorous and able to work as part of a team...",
+            "more": "Learn more about me"
+        },
+        "projects": {
+            "title": "My projects",
+            "text1": "Throughout my studies, I had the opportunity to get involved in application development.",
+            "text2": "I also had the chance to build websites, work on graphical interfaces and design databases...",
+            "see": "See my projects"
+        }
+    },
+    "about": {
+        "title": "About",
+        "who": "Who am I?",
+        "desc1": "Passionate about computing from a young age, I specialized in application development.",
+        "desc2": "A third-year Computer Science student at IUT de Calais, I have a growing interest in AI conception.",
+        "desc3": "I consider myself calm and thorough, someone who enjoys asking questions and seeking to understand.",
+        "timeline": "Educational Journey",
+        "video": "Presentation Video of my Computer Science degree",
+        "videoTitle": "Presentation video of the Computer Science BUT from IUT de Calais",
+        "skills": "Skills",
+        "hobbies": "Hobbies",
+        "more": "Learn more about me",
+        "timelineItems": {
+            "bac": {
+                "title": "Baccalauréat",
+                "school": "Lycée Sophie Berthelot",
+                "description": "Baccalauréat with specializations in Mathematics and Computer Science (NSI)"
+            },
+            "but1": {
+                "title": "BUT1",
+                "school": "IUT de Calais",
+                "description": "First year of the Computer Science degree. I revisited programming and algorithmic fundamentals, discovered the design-before-code approach (entity-relationship and relational database modeling), and learned new languages such as Java, C, and PostgreSQL. I also participated for the first time in large group projects, including building a website and a text-based game in C."
+            },
+            "but2": {
+                "title": "BUT2",
+                "school": "IUT de Calais",
+                "description": "During this second year, I learned how to create, secure, document and consume a REST API. I also used frameworks such as Node.js, Vue.js, and Symfony to build web applications. Additionally, I learned how to write unit tests and set up CI/CD pipelines for automated deployment."
+            },
+            "but3": {
+                "title": "BUT3",
+                "school": "IUT de Calais",
+                "description": "In this third year, I studied the field of artificial intelligence, learning how to apply machine learning for regression and classification tasks. I also covered foundational concepts around the transformer model."
+            }
+        }
+    },
+    "contact": {
+        "title": "Contact",
+        "subtitle": "Feel free to reach out for any question",
+        "infoTitle": "Contact information",
+        "socialTitle": "Social networks",
+        "name": "Name",
+        "email": "Email",
+        "subject": "Subject",
+        "message": "Message",
+        "send": "Send message",
+        "sending": "Sending...",
+        "sent": "Message sent!",
+        "placeholders": {
+            "name": "Your name",
+            "subject": "Subject of your message",
+            "message": "Your message (minimum 10 characters)..."
+        },
+        "errors": {
+            "invalidEmail": "Please enter a valid email address",
+            "shortMessage": "Message must be at least 10 characters long"
+        },
+        "successTitle": "Message sent successfully!",
+        "successDesc": "I will get back to you as soon as possible.",
+        "errorTitle": "Validation error",
+        "errorDesc": "Please fill in all fields correctly."
+    },
+    "projects": {
+        "title": "My Projects",
+        "intro": "Throughout my studies, I had the opportunity to get involved in application development. I also had the chance to build websites, work on graphical interfaces and design databases...",
+        "filterTech": "Filter by technologies:",
+        "category": "Category:",
+        "search": "Search for a project by title, description or technology...",
+        "seeProject": "View project",
+        "noResults": "No project found",
+        "noResultsDesc": "Try adjusting your search criteria.",
+        "all": "All",
+        "back": "Back to projects",
+        "backAll": "All projects",
+        "techUsed": "Technologies used",
+        "info": "Information",
+        "year": "Year",
+        "categoryLabel": "Category",
+        "status": "Status",
+        "rando_passion": {
+            "intro": "The goal of this internship was to update the existing website, which served as a showcase for the association. This update comprised three main parts:",
+            "part1Title": "The member-facing section",
+            "part1": "The site needed to allow members to view upcoming hikes, browse photos from previous outings, and access an interactive map listing completed hikes. It also had to provide access to the current term's calendar, press articles, and registration information.",
+            "part2Title": "The administration section",
+            "part2": "This section needed to allow association members to add or modify hike-related data, while minimizing the steps required to ensure efficiency and ease of use. It also had to support member management, including assigning access rights, adding or removing members, and appointing or removing captains. In addition, it needed to handle articles and registration documents.",
+            "part3Title": "The automation section",
+            "part3": "The goal of this feature was to enable automatic email notifications to members in case of a hike cancellation. Additionally, managing hikes, articles, members, and captains required setting up a database capable of communicating with the website."
+        },
+        "arcade": {
+            "meta": {
+                "title": "Arcade machine maintenance project at the IUT",
+                "description": "For two weeks, I worked on maintaining an arcade machine at the IUT to update it and add a new game.",
+                "category": "Maintenance",
+                "status": "In progress"
+            },
+            "intro": "This project aimed to perform maintenance on the IUT's arcade cabinet:",
+            "item1": "Update the Raspberry Pi 3",
+            "item2": "Automate dependency installation",
+            "item3": "Rewrite the documentation",
+            "item4": "Set up AI-powered scripts to automate certain tasks",
+            "wip": "In progress..."
+        },
+        "traitement_image": {
+            "intro": "This project aimed to create software capable of retrieving satellite images from the MAST database and processing them to improve visibility and highlight specific features. I worked on two aspects: image transformation and image retrieval from the database.",
+            "part1Title": "Image transformation",
+            "part1": "Development of a Python class to load, process and display astronomical images in FITS format, the standard in astrophysics.",
+            "part1Items": "Loads scientific data from a space image",
+            "part1Items2": "Cleans invalid values (NaN, infinities, negative values)",
+            "part1Items3": "Automatically corrects image orientation from metadata",
+            "part1Items4": "Applies gamma correction to improve contrast",
+            "part1Items5": "Normalizes data to optimize display",
+            "part1Items6": "Supports different colormaps (red, green, blue, grayscale)",
+            "part1Items7": "Displays the result using Matplotlib",
+            "part2Title": "Image retrieval",
+            "part2": "Development of a Python module to automatically search and download astronomical images in FITS format from the official MAST archive.",
+            "part2Items": "Queries the archive via astroquery",
+            "part2Items2": "Searches public observations by specific criteria (mission, target)",
+            "part2Items3": "Filters scientific products to keep only FITS files, calibrated data (level 2) and DRC images",
+            "part2Items4": "Automatically selects one file per scientific filter",
+            "part2Items5": "Downloads files from the official API",
+            "part2Items6": "Tracks download progress in real time",
+            "part2End": "The module is integrated into a graphical interface built with PyQt6, using a signal system to display the current file name, the start of a download, and the completion percentage."
+        },
+        "vr_game": {
+            "content": "This project involved building a VR game in one week using Unreal Engine. The goal was to create a puzzle game requiring hand interactions. In this project, I worked on hand interactions and designed certain puzzles, including a bow and arrow mechanic used to lower a drawbridge."
+        },
+        "xenon_space": {
+            "intro": "This project is a video game developed in Python. The goal was to create an AI that could play against human players or against another AI.",
+            "part1": "In this project, I programmed the animation classes, the HUD creation, and the turn logic.",
+            "aiTitle": "The AI",
+            "ai": "The AI computes its next move based on the current game state. It takes into account several factors such as the position of ships (allied and enemy), ship health, and available actions (number of moves, possible attacks)."
+        }
     }
 }

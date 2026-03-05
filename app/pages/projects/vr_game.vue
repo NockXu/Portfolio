@@ -33,7 +33,7 @@ export const projectMeta = {
 					variant="ghost"
 					size="sm"
 				>
-					Retour aux projets
+					{{ $t('projects.back') }}
 				</UButton>
 			</div>
 
@@ -108,8 +108,7 @@ export const projectMeta = {
 			<div class="grid md:grid-cols-3 gap-8 mb-12">
 				<div class="md:col-span-2 space-y-6">
 					<!-- Section à compléter -->
-					Ce projet était de réaliser en une semaine un jeu VR sur Unreal Engine. Il était demandé de faire un jeu avec des puzzle qui demandaient des interactions avec les mains.
-					Dans ce projet, j'ai travailler sur les interactions avec les mains et la création de certains puzzles comme l'arc et la flèche qui doivent faire tombé un pont levis.
+					{{ $t('projects.vr_game.content') }}
 				</div>
 
 				<!-- Sidebar auto depuis projectMeta -->
@@ -117,7 +116,7 @@ export const projectMeta = {
 					<UCard class="bg-gray-800/50 border-gray-700">
 						<template #header>
 							<h2 class="text-lg font-semibold text-cyan-300 flex items-center gap-2">
-								Technologies utilisées
+								{{ $t('projects.techUsed') }}
 							</h2>
 						</template>
 						<div class="flex flex-wrap gap-2">
@@ -135,22 +134,22 @@ export const projectMeta = {
 					<UCard class="bg-gray-800/50 border-gray-700">
 						<template #header>
 							<h2 class="text-lg font-semibold text-gray-300 flex items-center gap-2">
-								Informations
+								{{ $t('projects.info') }}
 							</h2>
 						</template>
 						<div class="space-y-3 text-sm">
 							<div class="flex justify-between items-center">
-								<span class="text-gray-400">Année</span>
+								<span class="text-gray-400">{{ $t('projects.year') }}</span>
 								<span class="text-white font-medium">{{ projectMeta.year }}</span>
 							</div>
 							<UDivider />
 							<div class="flex justify-between items-center">
-								<span class="text-gray-400">Catégorie</span>
+								<span class="text-gray-400">{{ $t('projects.categoryLabel') }}</span>
 								<span class="text-white font-medium">{{ projectMeta.category }}</span>
 							</div>
 							<UDivider />
 							<div class="flex justify-between items-center">
-								<span class="text-gray-400">Statut</span>
+								<span class="text-gray-400">{{ $t('projects.status') }}</span>
 								<UBadge
 									color="primary"
 									variant="soft"
@@ -172,7 +171,7 @@ export const projectMeta = {
 					color="gray"
 					variant="outline"
 				>
-					Tous les projets
+					{{ $t('projects.back') }}
 				</UButton>
 			</div>
 		</div>

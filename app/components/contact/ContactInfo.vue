@@ -16,7 +16,7 @@ defineProps<{
 		<UCard class="hover:scale-[1.02] transition-all duration-300">
 			<template #header>
 				<h2 class="text-2xl font-semibold text-blue-300">
-					Informations de contact
+					{{ $t('contact.infoTitle') }}
 				</h2>
 			</template>
 
@@ -58,7 +58,7 @@ defineProps<{
 		<UCard class="hover:scale-[1.02] transition-all duration-300">
 			<template #header>
 				<h2 class="text-2xl font-semibold text-blue-300">
-					Réseaux sociaux
+					{{ $t('contact.socialTitle') }}
 				</h2>
 			</template>
 

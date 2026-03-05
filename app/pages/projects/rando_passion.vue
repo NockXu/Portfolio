@@ -33,7 +33,7 @@ export const projectMeta = {
 					variant="ghost"
 					size="sm"
 				>
-					Retour aux projets
+					{{ $t('projects.back') }}
 				</UButton>
 			</div>
 
@@ -100,8 +100,7 @@ export const projectMeta = {
 					{{ projectMeta.title }}
 				</h1>
 				<p class="text-gray-300 text-lg leading-relaxed">
-					L’objectif de ce stage était de mettre à jour le site web existant, qui servait de vitrine à l’association.
-					Cette mise à jour comprenait trois grandes parties :
+					{{ $t('projects.rando_passion.intro') }}
 				</p>
 			</div>
 
@@ -109,22 +108,22 @@ export const projectMeta = {
 			<div class="grid md:grid-cols-3 gap-8 mb-12">
 				<div class="md:col-span-2 space-y-6">
 					<h3 class="text-xl font-semibold text-cyan-300 mb-2">
-						La partie visible pour les adhérents
+						{{ $t('projects.rando_passion.part1Title') }}
 					</h3>
 					<p class="text-gray-300 leading-relaxed">
-						Le site devait permettre aux adhérents de consulter les prochaines randonnées, de visualiser les photos prises lors des précédentes sorties, ainsi que d’accéder à une carte interactive répertoriant les randonnées déjà effectuées. Il devait également offrir un accès au calendrier du quadrimestre en cours, aux articles de presse, ainsi qu’aux informations nécessaires pour l’inscription.
+						{{ $t('projects.rando_passion.part1') }}
 					</p>
 					<h3 class="text-xl font-semibold text-cyan-300 mb-2">
-						La partie administration
+						{{ $t('projects.rando_passion.part2Title') }}
 					</h3>
 					<p class="text-gray-300 leading-relaxed">
-						Cette section devait permettre aux membres de l’association d’ajouter ou de modifier les données liées aux randonnées, tout en minimisant les manipulations nécessaires afin de garantir une grande efficacité et une facilité d’utilisation. Il devait également être possible de gérer les membres de l’association, notamment en attribuant des droits d’accès, en ajoutant ou supprimant des adhérents, ainsi qu’en nommant ou retirant les capitaines. De plus il devait pouvoir gérer les articles ainsi que les documents d’inscriptions.
+						{{ $t('projects.rando_passion.part2') }}
 					</p>
 					<h3 class="text-xl font-semibold text-cyan-300 mb-2">
-						La partie automatisation
+						{{ $t('projects.rando_passion.part3Title') }}
 					</h3>
 					<p class="text-gray-300 leading-relaxed">
-						L’objectif de cette fonctionnalité était de permettre l’envoi automatique d’e-mails aux adhérents en cas d’annulation d’une randonnée. Par ailleurs, la gestion des randonnées, des articles, des adhérents, des membres et des capitaines nécessitait la mise en place d’une base de données capable de communiquer avec le site web.
+						{{ $t('projects.rando_passion.part3') }}
 					</p>
 				</div>
 
@@ -133,7 +132,7 @@ export const projectMeta = {
 					<UCard class="bg-gray-800/50 border-gray-700">
 						<template #header>
 							<h2 class="text-lg font-semibold text-cyan-300 flex items-center gap-2">
-								Technologies utilisées
+								{{ $t('projects.techUsed') }}
 							</h2>
 						</template>
 						<div class="flex flex-wrap gap-2">
@@ -151,22 +150,22 @@ export const projectMeta = {
 					<UCard class="bg-gray-800/50 border-gray-700">
 						<template #header>
 							<h2 class="text-lg font-semibold text-gray-300 flex items-center gap-2">
-								Informations
+								{{ $t('projects.info') }}
 							</h2>
 						</template>
 						<div class="space-y-3 text-sm">
 							<div class="flex justify-between items-center">
-								<span class="text-gray-400">Année</span>
+								<span class="text-gray-400">{{ $t('projects.year') }}</span>
 								<span class="text-white font-medium">{{ projectMeta.year }}</span>
 							</div>
 							<UDivider />
 							<div class="flex justify-between items-center">
-								<span class="text-gray-400">Catégorie</span>
+								<span class="text-gray-400">{{ $t('projects.categoryLabel') }}</span>
 								<span class="text-white font-medium">{{ projectMeta.category }}</span>
 							</div>
 							<UDivider />
 							<div class="flex justify-between items-center">
-								<span class="text-gray-400">Statut</span>
+								<span class="text-gray-400">{{ $t('projects.status') }}</span>
 								<UBadge
 									color="primary"
 									variant="soft"
@@ -188,7 +187,7 @@ export const projectMeta = {
 					color="gray"
 					variant="outline"
 				>
-					Tous les projets
+					{{ $t('projects.back') }}
 				</UButton>
 			</div>
 		</div>

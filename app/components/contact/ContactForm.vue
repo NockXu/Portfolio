@@ -26,12 +26,12 @@ const isValidEmail = computed(() => {
 
 const emailError = computed(() => {
 	if (!props.form.email) return '';
-	return isValidEmail.value ? '' : 'Veuillez entrer une adresse email valide';
+	return isValidEmail.value ? '' : $t('contact.errors.invalidEmail');
 });
 
 const messageError = computed(() => {
 	if (!props.form.message) return '';
-	return props.form.message.trim().length >= 10 ? '' : 'Le message doit contenir au moins 10 caractères';
+	return props.form.message.trim().length >= 10 ? '' : $t('contact.errors.shortMessage');
 });
 
 const isFormFilled = computed(() => {
@@ -56,7 +56,7 @@ const updateForm = (key: keyof Form, value: string) => {
 		>
 			<div class="grid md:grid-cols-2 gap-4">
 				<UFormGroup
-					label="Nom"
+					:label="$t('contact.name')"
 					name="name"
 					required
 					class="space-y-2"
@@ -65,7 +65,7 @@ const updateForm = (key: keyof Form, value: string) => {
 						<div class="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-lg blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 						<UInput
 							:model-value="props.form.name"
-							placeholder="Votre nom"
+							:placeholder="$t('contact.placeholders.name')"
 							size="xl"
 							color="secondary"
 							icon="i-heroicons-user"
@@ -76,7 +76,7 @@ const updateForm = (key: keyof Form, value: string) => {
 				</UFormGroup>
 
 				<UFormGroup
-					label="Email"
+					:label="$t('contact.email')"
 					name="email"
 					required
 					class="space-y-2"
@@ -104,7 +104,7 @@ const updateForm = (key: keyof Form, value: string) => {
 			</div>
 
 			<UFormGroup
-				label="Sujet"
+				:label="$t('contact.subject')"
 				name="subject"
 				required
 				class="space-y-2"
@@ -113,7 +113,7 @@ const updateForm = (key: keyof Form, value: string) => {
 					<div class="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-lg blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 					<UInput
 						:model-value="props.form.subject"
-						placeholder="Sujet de votre message"
+						:placeholder="$t('contact.placeholders.subject')"
 						size="xl"
 						color="secondary"
 						icon="i-heroicons-chat-bubble-left-right"
@@ -124,7 +124,7 @@ const updateForm = (key: keyof Form, value: string) => {
 			</UFormGroup>
 
 			<UFormGroup
-				label="Message"
+				:label="$t('contact.message')"
 				name="message"
 				required
 				class="space-y-2"
@@ -133,7 +133,7 @@ const updateForm = (key: keyof Form, value: string) => {
 					<div class="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-lg blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 					<UTextarea
 						:model-value="props.form.message"
-						placeholder="Votre message (minimum 10 caractères)..."
+						:placeholder="$t('contact.placeholders.message')"
 						:rows="8"
 						size="xl"
 						:color="messageError ? 'error' : 'secondary'"
@@ -160,7 +160,7 @@ const updateForm = (key: keyof Form, value: string) => {
 					icon="i-heroicons-paper-airplane"
 					class="px-20 bg-gradient-to-r from-blue-500 to-purple-600 transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-blue-500/30 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 disabled:hover:shadow-none disabled:transition-none"
 				>
-					{{ isSubmitting ? 'Envoi en cours...' : submitStatus === 'success' ? 'Message envoyé !' : 'Envoyer le message' }}
+					{{ isSubmitting ? $t('contact.sending') : submitStatus === 'success' ? $t('contact.sent') : $t('contact.send') }}
 				</UButton>
 			</div>
 
@@ -169,8 +169,8 @@ const updateForm = (key: keyof Form, value: string) => {
 				icon="i-heroicons-check-circle"
 				color="primary"
 				variant="subtle"
-				title="Message envoyé avec succès !"
-				description="Je vous répondrai dans les plus brefs délais."
+				:title="$t('contact.successTitle')"
+				:description="$t('contact.successDesc')"
 				class="mt-4 bg-green-500/10 border-green-500/30 text-green-300"
 			/>
 
@@ -179,8 +179,8 @@ const updateForm = (key: keyof Form, value: string) => {
 				icon="i-heroicons-exclamation-triangle"
 				color="error"
 				variant="subtle"
-				title="Erreur de validation"
-				description="Veuillez remplir correctement tous les champs du formulaire."
+				:title="$t('contact.errorTitle')"
+				:description="$t('contact.errorDesc')"
 				class="mt-4 bg-red-500/10 border-red-500/30 text-red-300"
 			/>
 		</UForm>

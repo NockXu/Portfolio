@@ -5,5 +5,154 @@
         "about": "À propos",
         "projects": "Projets",
         "contact": "Contact"
+    },
+    "index": {
+        "title": "DAVID Gabriel",
+        "subtitle": "Voici mon e-cv, ici mes projets et mon projet professionnel",
+        "downloadCV": "Télécharger mon CV",
+        "about": {
+            "title": "À propos de moi",
+            "text1": "Étudiant en informatique à l'IUT de Calais depuis plus de 2 ans.",
+            "text2": "J'habite à Calais et j'ai 20 ans. Je suis passionné par le développement informatique. De plus, je suis calme, rigoureux et capable de travailler en équipe...",
+            "more": "En savoir plus sur moi"
+        },
+        "projects": {
+            "title": "Mes projets",
+            "text1": "Au cours de mon parcours, j'ai eu l'opportunité de me lancer dans le développement d'applications.",
+            "text2": "J'ai aussi eu l'occasion de créer des sites web, de travailler sur des interfaces graphiques et de concevoir des bases de données ...",
+            "see": "Voir mes projets"
+        }
+    },
+    "about": {
+        "title": "À Propos",
+        "who": "Qui suis-je ?",
+        "desc1": "Passionné par l'informatique depuis tout petit, je me suis spécialisé dans le développement d'applications.",
+        "desc2": "Étudiant en troisième année de BUT Informatique à l'IUT de Calais, je porte mon intérêt vers la conception d'IA.",
+        "desc3": "Je pense être quelqu'un de calme et rigoureux, qui aime se poser des questions et chercher à comprendre.",
+        "timeline": "Parcours Scolaire",
+        "video": "Vidéo de Présentation de mon BUT informatique",
+        "videoTitle": "Vidéo de présentation du BUT Informatique de l'IUT de Calais",
+        "skills": "Compétences",
+        "hobbies": "Centres d'intérêt",
+        "more": "En savoir plus sur moi",
+        "timelineItems": {
+            "bac": {
+                "title": "Baccalauréat",
+                "school": "Lycée Sophie Berthelot",
+                "description": "Baccalauréat Spécialité Mathématiques, NSI"
+            },
+            "but1": {
+                "title": "BUT1",
+                "school": "IUT de Calais",
+                "description": "Entrée au BUT Informatique, j'y ai revu mes bases en programmation et en algorithmique, j'ai découvert l'aspect conception avant la programmation (MLD/MCD en base de données), j'ai aussi appris de nouveau language comme le java, le c, le postgreSQL, c'est aussi l'année où j'ai pour la première fois participé à des gros projets de groupe comme la création d'un site web et la création d'un jeu textuelle en C."
+            },
+            "but2": {
+                "title": "BUT2",
+                "school": "IUT de Calais",
+                "description": "Durant cette deuxième année, j'ai appris à créer, sécuriser, documenter et utiliser une API REST, j'ai aussi utilisé des frameworks comme Node.js, Vue.js, Symfony pour créer des applications web. De plus, j'ai appris à créer des tests unitaires et à mettre en place une CI/CD pour le déploiement automatique de mes projets"
+            },
+            "but3": {
+                "title": "BUT3",
+                "school": "IUT de Calais",
+                "description": "Pendant cette troisième année, j'ai étudié le domaine de l'ia en découvrent comment faire du machine learning pour faire de la régression ainsi que de la classification. J'ai aussi vue des notions sur le modèle transformer."
+            }
+        }
+    },
+    "contact": {
+        "title": "Contact",
+        "subtitle": "N'hésitez pas à me contacter pour toute question",
+        "infoTitle": "Informations de contact",
+        "socialTitle": "Réseaux sociaux",
+        "name": "Nom",
+        "email": "Email",
+        "subject": "Sujet",
+        "message": "Message",
+        "send": "Envoyer le message",
+        "sending": "Envoi en cours...",
+        "sent": "Message envoyé !",
+        "placeholders": {
+            "name": "Votre nom",
+            "subject": "Sujet de votre message",
+            "message": "Votre message (minimum 10 caractères)..."
+        },
+        "errors": {
+            "invalidEmail": "Veuillez entrer une adresse email valide",
+            "shortMessage": "Le message doit contenir au moins 10 caractères"
+        },
+        "successTitle": "Message envoyé avec succès !",
+        "successDesc": "Je vous répondrai dans les plus brefs délais.",
+        "errorTitle": "Erreur de validation",
+        "errorDesc": "Veuillez remplir correctement tous les champs du formulaire."
+    },
+    "projects": {
+        "title": "Mes Projets",
+        "intro": "Au cours de mon parcours, j'ai eu l'opportunité de me lancer dans le développement d'applications. J'ai aussi eu l'occasion de créer des sites web, de travailler sur des interfaces graphiques et de concevoir des bases de données...",
+        "filterTech": "Filtrer par technologies :",
+        "category": "Catégorie :",
+        "search": "Rechercher un projet par titre, description ou technologie...",
+        "seeProject": "Voir le projet",
+        "noResults": "Aucun projet trouvé",
+        "noResultsDesc": "Essayez de modifier vos critères de recherche.",
+        "all": "Tous",
+        "back": "Retour aux projets",
+        "backAll": "Tous les projets",
+        "techUsed": "Technologies utilisées",
+        "info": "Informations",
+        "year": "Année",
+        "categoryLabel": "Catégorie",
+        "status": "Statut",
+        "rando_passion": {
+            "intro": "L'objectif de ce stage était de mettre à jour le site web existant, qui servait de vitrine à l'association. Cette mise à jour comprenait trois grandes parties :",
+            "part1Title": "La partie visible pour les adhérents",
+            "part1": "Le site devait permettre aux adhérents de consulter les prochaines randonnées, de visualiser les photos prises lors des précédentes sorties, ainsi que d'accéder à une carte interactive répertoriant les randonnées déjà effectuées. Il devait également offrir un accès au calendrier du quadrimestre en cours, aux articles de presse, ainsi qu'aux informations nécessaires pour l'inscription.",
+            "part2Title": "La partie administration",
+            "part2": "Cette section devait permettre aux membres de l'association d'ajouter ou de modifier les données liées aux randonnées, tout en minimisant les manipulations nécessaires afin de garantir une grande efficacité et une facilité d'utilisation. Il devait également être possible de gérer les membres de l'association, notamment en attribuant des droits d'accès, en ajoutant ou supprimant des adhérents, ainsi qu'en nommant ou retirant les capitaines. De plus il devait pouvoir gérer les articles ainsi que les documents d'inscriptions.",
+            "part3Title": "La partie automatisation",
+            "part3": "L'objectif de cette fonctionnalité était de permettre l'envoi automatique d'e-mails aux adhérents en cas d'annulation d'une randonnée. Par ailleurs, la gestion des randonnées, des articles, des adhérents, des membres et des capitaines nécessitait la mise en place d'une base de données capable de communiquer avec le site web."
+        },
+        "arcade": {
+            "meta": {
+                "title": "Projet de maintenance d'une borne arcade de l'IUT",
+                "description": "Pendant deux semaines, j'ai du faire la maintenance d'une borne arcade de l'IUT pour la mettre à jour et ajouter un nouveau jeu.",
+                "category": "Maintenance",
+                "status": "En cours"
+            },
+            "intro": "Ce projet avait pour objectif de faire la maintenance de la borne d'arcade de l'IUT :",
+            "item1": "Mettre à jour le raspberry pi 3",
+            "item2": "Automatiser l'installation des dépendances",
+            "item3": "Refaire la documentation",
+            "item4": "Mettre en place des scripts qui utilisent de l'IA pour automatiser certaines tâches",
+            "wip": "En cours..."
+        },
+        "traitement_image": {
+            "intro": "Ce projet avait pour but de créer un logiciel capable de récupérer les images des satellites depuis la base de données MAST et de pouvoir les manipuler pour améliorer leur visibilité et faire ressortir certaines caractéristiques. J'ai fait deux aspects du projet : la partie de transformation d'images et la partie de récupération d'images depuis la base de données.",
+            "part1Title": "Transformation d'images",
+            "part1": "Développement d'une classe Python permettant de charger, traiter et afficher des images astronomiques au format FITS, standard en astrophysique.",
+            "part1Items": "Charge les données scientifiques d'une image spatiale",
+            "part1Items2": "Nettoie les valeurs invalides (NaN, infinis, valeurs négatives)",
+            "part1Items3": "Corrige automatiquement l'orientation de l'image à partir des métadonnées",
+            "part1Items4": "Applique une correction gamma pour améliorer le contraste",
+            "part1Items5": "Normalise les données pour optimiser l'affichage",
+            "part1Items6": "Permet l'application de différentes colormaps (rouge, vert, bleu, niveaux de gris)",
+            "part1Items7": "Affiche le résultat avec Matplotlib",
+            "part2Title": "Récupération d'images",
+            "part2": "Développement d'un module Python permettant de rechercher et télécharger automatiquement des images astronomiques au format FITS depuis l'archive officielle MAST.",
+            "part2Items": "Interroge l'archive via astroquery",
+            "part2Items2": "Recherche des observations publiques selon des critères précis (mission, cible)",
+            "part2Items3": "Filtre les produits scientifiques pour ne conserver que les fichiers FITS, les données calibrées (niveau 2) et les images DRC",
+            "part2Items4": "Sélectionne automatiquement un fichier par filtre scientifique",
+            "part2Items5": "Télécharge les fichiers depuis l'API officielle",
+            "part2Items6": "Suit la progression du téléchargement en temps réel",
+            "part2End": "Le module est intégré à une interface graphique avec PyQt6, grâce à un système de signaux permettant d'afficher le nom du fichier en cours, le début d'un téléchargement et le pourcentage d'avancement."
+        },
+        "vr_game": {
+            "content": "Ce projet était de réaliser en une semaine un jeu VR sur Unreal Engine. Il était demandé de faire un jeu avec des puzzle qui demandaient des interactions avec les mains. Dans ce projet, j'ai travaillé sur les interactions avec les mains et la création de certains puzzles comme l'arc et la flèche qui doivent faire tomber un pont levis."
+        },
+        "xenon_space": {
+            "intro": "Ce projet est un jeu vidéo développé en Python. Ce projet avait pour but de créer une IA qui pourrait jouer contre les joueurs ou contre une autre IA.",
+            "part1": "Dans ce projet, j'ai programmé les classes pour jouer les animations, la création du HUD et la logique de tour.",
+            "aiTitle": "L'IA créée",
+            "ai": "L'IA créée est une IA qui calcule son prochain coup en fonction de la situation actuelle du jeu. Elle prend en compte plusieurs facteurs comme la position des vaisseaux (alliés et ennemis), la santé des vaisseaux et les actions possibles (nombre de déplacements, possibilités d'attaques)."
+        }
     }
 }

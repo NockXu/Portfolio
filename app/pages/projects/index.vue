@@ -15,18 +15,8 @@ const projects = Object.entries(modules)
 const selectedFilter = ref('Tous');
 const searchQuery = ref('');
 const searchTag = ref('');
-const selectedTags = ref<string[]>([]);
 
 const categories = computed(() => ['Tous', ...new Set(projects.map(p => p.category))]);
-
-// Extraire tous les tags uniques des projets
-const allTags = computed(() => {
-	const tags = new Set<string>();
-	projects.forEach((project) => {
-		project.tech.forEach(tech => tags.add(tech));
-	});
-	return Array.from(tags).sort();
-});
 
 const statusColor = (status: string) => {
 	if (status === 'En cours') return 'success';
@@ -34,36 +24,19 @@ const statusColor = (status: string) => {
 	return 'primary';
 };
 
-// Fonction pour ajouter/supprimer un tag
-const toggleTag = (tag: string) => {
-	const index = selectedTags.value.indexOf(tag);
-	if (index > -1) {
-		selectedTags.value.splice(index, 1);
-	}
-	else {
-		selectedTags.value.push(tag);
-	}
-};
-
 const filteredProjects = computed(() => {
 	let result = projects;
-
-	// Filtrer par catégorie
 	if (selectedFilter.value !== 'Tous')
 		result = result.filter(p => p.category === selectedFilter.value);
-
-	// Filtrer par tags sélectionnés
-	if (selectedTags.value.length > 0)
-		result = result.filter(p => p.tech.some(tech => selectedTags.value.includes(tech)));
-
-	// Filtrer par recherche textuelle
 	if (searchQuery.value.trim())
 		result = result.filter(p =>
 			p.title.toLowerCase().includes(searchQuery.value.toLowerCase())
-			|| p.description.toLowerCase().includes(searchQuery.value.toLowerCase())
-			|| p.tech.some(tech => tech.toLowerCase().includes(searchQuery.value.toLowerCase())),
+			|| p.description.toLowerCase().includes(searchQuery.value.toLowerCase()),
 		);
-
+	if (searchTag.value.trim())
+		result = result.filter(p =>
+			p.tech.some(t => t.toLowerCase().includes(searchTag.value.toLowerCase())),
+		);
 	return result;
 });
 </script>
@@ -74,63 +47,46 @@ const filteredProjects = computed(() => {
 			<div class="mb-20 relative">
 				<div class="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-purple-500/20 blur-3xl -z-10" />
 				<h1 class="text-5xl md:text-7xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400 mb-6 animate-pulse">
-					Mes Projets
+					{{ $t('projects.title') }}
 				</h1>
 				<div class="h-1 w-1/6 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full mb-8" />
 			</div>
 
 			<UCard class="mb-12">
 				<p class="text-gray-300 text-lg leading-relaxed">
-					Au cours de mon parcours, j'ai eu l'opportunité de me lancer dans le développement d'applications. J'ai aussi eu l'occasion de créer des sites web, de travailler sur des interfaces graphiques et de concevoir des bases de données...
+					{{ $t('projects.intro') }}
 				</p>
 			</UCard>
 
-			<div class="mb-12">
-				<!-- Sélecteur multiple de tags -->
-				<div class="mb-8">
-					<p class="text-gray-300 text-lg mb-4">
-						Filtrer par technologies :
-					</p>
-					<div class="flex flex-wrap gap-2 mb-6">
-						<UBadge
-							v-for="tag in allTags"
-							:key="tag"
-							:variant="selectedTags.includes(tag) ? 'solid' : 'soft'"
-							:color="selectedTags.includes(tag) ? 'primary' : 'neutral'"
-							class="cursor-pointer hover:scale-105 transition-all duration-200"
-							@click="toggleTag(tag)"
-						>
-							{{ tag }}
-						</UBadge>
-					</div>
-				</div>
+			<div class="mb-8">
+				<UInput
+					v-model="searchQuery"
+					icon="i-heroicons-magnifying-glass"
+					size="lg"
+					class="w-full"
+					:placeholder="$t('projects.search')"
+				/>
+			</div>
 
-				<!-- Filtres par catégorie -->
-				<div class="mb-12 flex flex-col md:flex-row gap-4 items-start md:items-center">
-					<span class="text-gray-300 mr-4">Catégorie :</span>
-					<UButtonGroup class="flex-1">
-						<UButton
-							v-for="cat in categories"
-							:key="cat"
-							:variant="selectedFilter === cat ? 'solid' : 'outline'"
-							:color="selectedFilter === cat ? 'primary' : 'neutral'"
-							@click="selectedFilter = cat"
-						>
-							{{ cat }}
-						</UButton>
-					</UButtonGroup>
-				</div>
-
-				<!-- Recherche par texte -->
-				<div class="mb-8">
-					<UInput
-						v-model="searchQuery"
-						class="w-full"
-						icon="i-heroicons-magnifying-glass"
-						size="lg"
-						placeholder="Rechercher un projet par titre, description ou technologie..."
-					/>
-				</div>
+			<div class="mb-12 flex flex-col md:flex-row gap-4 items-start md:items-center">
+				<UInput
+					v-model="searchTag"
+					icon="i-heroicons-tag"
+					size="lg"
+					:placeholder="$t('projects.filterTech')"
+					class="w-full md:w-80"
+				/>
+				<UButtonGroup class="flex-1">
+					<UButton
+						v-for="cat in categories"
+						:key="cat"
+						:variant="selectedFilter === cat ? 'solid' : 'outline'"
+						:color="selectedFilter === cat ? 'primary' : 'gray'"
+						@click="selectedFilter = cat"
+					>
+						{{ cat }}
+					</UButton>
+				</UButtonGroup>
 			</div>
 
 			<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -181,7 +137,7 @@ const filteredProjects = computed(() => {
 											name="i-heroicons-arrow-right"
 											class="w-4 h-4"
 										/>
-										Voir le projet
+										{{ $t('projects.seeProject') }}
 									</span>
 								</div>
 							</div>
@@ -190,7 +146,7 @@ const filteredProjects = computed(() => {
 							<div class="flex items-start justify-between gap-2 mb-3">
 								<h3 class="text-xl font-bold text-white leading-tight group-hover:text-blue-300 transition-colors duration-200">{{ project.title }}</h3>
 								<UBadge
-									color="gray"
+									color="purple"
 									variant="soft"
 									size="xs"
 									class="shrink-0 mt-1"

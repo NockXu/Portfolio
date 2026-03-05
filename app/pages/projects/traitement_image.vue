@@ -33,7 +33,7 @@ export const projectMeta = {
 					variant="ghost"
 					size="sm"
 				>
-					Retour aux projets
+					{{ $t('projects.back') }}
 				</UButton>
 			</div>
 
@@ -100,8 +100,7 @@ export const projectMeta = {
 					{{ projectMeta.title }}
 				</h1>
 				<p class="text-gray-300 text-lg leading-relaxed">
-					Ce projet avait pour but de créer un logiciel capable de récupérer les images des satellites depuis la base de données MAST et de pouvoir les manipuler pour améliorer leur visibilité et faire ressortir certaines caractéristiques.
-					J'ai fait deux aspects du projet : la partie de transformation d'images et la partie de récupération d'images depuis la base de données.
+					{{ $t('projects.traitement_image.intro') }}
 				</p>
 			</div>
 
@@ -109,7 +108,7 @@ export const projectMeta = {
 			<div class="grid md:grid-cols-3 gap-8 mb-12">
 				<div class="md:col-span-2 space-y-6">
 					<h2 class="text-xl font-semibold text-blue-300 flex items-center gap-2">
-						Transformation d'images
+						{{ $t('projects.traitement_image.part1Title') }}
 					</h2>
 
 					<img
@@ -119,35 +118,35 @@ export const projectMeta = {
 					>
 
 					<p class="text-gray-300 leading-relaxed">
-						Développement d'une classe Python permettant de charger, traiter et afficher des images astronomiques au format FITS, standard en astrophysique.
+						{{ $t('projects.traitement_image.part1') }}
 					</p>
 
 					<ul class="space-y-2 ml-6 mt-4">
 						<li class="text-gray-300">
-							Charge les données scientifiques d'une image spatiale
+							{{ $t('projects.traitement_image.part1Items') }}
 						</li>
 						<li class="text-gray-300">
-							Nettoie les valeurs invalides (NaN, infinis, valeurs négatives)
+							{{ $t('projects.traitement_image.part1Items2') }}
 						</li>
 						<li class="text-gray-300">
-							Corrige automatiquement l'orientation de l'image à partir des métadonnées
+							{{ $t('projects.traitement_image.part1Items3') }}
 						</li>
 						<li class="text-gray-300">
-							Applique une correction gamma pour améliorer le contraste
+							{{ $t('projects.traitement_image.part1Items4') }}
 						</li>
 						<li class="text-gray-300">
-							Normalise les données pour optimiser l'affichage
+							{{ $t('projects.traitement_image.part1Items5') }}
 						</li>
 						<li class="text-gray-300">
-							Permet l'application de différentes colormaps (rouge, vert, bleu, niveaux de gris)
+							{{ $t('projects.traitement_image.part1Items6') }}
 						</li>
 						<li class="text-gray-300">
-							Affiche le résultat avec Matplotlib
+							{{ $t('projects.traitement_image.part1Items7') }}
 						</li>
 					</ul>
 
 					<h2 class="text-xl font-semibold text-purple-300 flex items-center gap-2">
-						Récupération d'images
+						{{ $t('projects.traitement_image.part2Title') }}
 					</h2>
 
 					<img
@@ -157,32 +156,32 @@ export const projectMeta = {
 					>
 
 					<p class="text-gray-300 leading-relaxed">
-						Développement d'un module Python permettant de rechercher et télécharger automatiquement des images astronomiques au format FITS depuis l'archive officielle MAST.
+						{{ $t('projects.traitement_image.part2') }}
 					</p>
 
 					<ul class="space-y-2 ml-6 mt-4">
 						<li class="text-gray-300">
-							Interroge l'archive via astroquery
+							{{ $t('projects.traitement_image.part2Items') }}
 						</li>
 						<li class="text-gray-300">
-							Recherche des observations publiques selon des critères précis (mission, cible)
+							{{ $t('projects.traitement_image.part2Items2') }}
 						</li>
 						<li class="text-gray-300">
-							Filtre les produits scientifiques pour ne conserver que les fichiers FITS, les données calibrées (niveau 2) et les images DRC
+							{{ $t('projects.traitement_image.part2Items3') }}
 						</li>
 						<li class="text-gray-300">
-							Sélectionne automatiquement un fichier par filtre scientifique
+							{{ $t('projects.traitement_image.part2Items4') }}
 						</li>
 						<li class="text-gray-300">
-							Télécharge les fichiers depuis l'API officielle
+							{{ $t('projects.traitement_image.part2Items5') }}
 						</li>
 						<li class="text-gray-300">
-							Suit la progression du téléchargement en temps réel
+							{{ $t('projects.traitement_image.part2Items6') }}
 						</li>
 					</ul>
 
 					<p class="text-gray-300 leading-relaxed mt-4">
-						Le module est intégré à une interface graphique avec PyQt6, grâce à un système de signaux permettant d'afficher le nom du fichier en cours, le début d'un téléchargement et le pourcentage d'avancement.
+						{{ $t('projects.traitement_image.part2End') }}
 					</p>
 				</div>
 
@@ -191,7 +190,7 @@ export const projectMeta = {
 					<UCard class="bg-gray-800/50 border-gray-700">
 						<template #header>
 							<h2 class="text-lg font-semibold text-cyan-300 flex items-center gap-2">
-								Technologies utilisées
+								{{ $t('projects.techUsed') }}
 							</h2>
 						</template>
 						<div class="flex flex-wrap gap-2">
@@ -209,22 +208,22 @@ export const projectMeta = {
 					<UCard class="bg-gray-800/50 border-gray-700">
 						<template #header>
 							<h2 class="text-lg font-semibold text-gray-300 flex items-center gap-2">
-								Informations
+								{{ $t('projects.info') }}
 							</h2>
 						</template>
 						<div class="space-y-3 text-sm">
 							<div class="flex justify-between items-center">
-								<span class="text-gray-400">Année</span>
+								<span class="text-gray-400">{{ $t('projects.year') }}</span>
 								<span class="text-white font-medium">{{ projectMeta.year }}</span>
 							</div>
 							<UDivider />
 							<div class="flex justify-between items-center">
-								<span class="text-gray-400">Catégorie</span>
+								<span class="text-gray-400">{{ $t('projects.categoryLabel') }}</span>
 								<span class="text-white font-medium">{{ projectMeta.category }}</span>
 							</div>
 							<UDivider />
 							<div class="flex justify-between items-center">
-								<span class="text-gray-400">Statut</span>
+								<span class="text-gray-400">{{ $t('projects.status') }}</span>
 								<UBadge
 									color="primary"
 									variant="soft"
@@ -246,7 +245,7 @@ export const projectMeta = {
 					color="gray"
 					variant="outline"
 				>
-					Tous les projets
+					{{ $t('projects.back') }}
 				</UButton>
 			</div>
 		</div>

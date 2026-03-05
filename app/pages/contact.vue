@@ -23,6 +23,8 @@
 </template>
 
 <script setup lang="ts">
+const { t } = useI18n();
+
 const form = reactive({
 	name: '',
 	email: '',
@@ -33,7 +35,6 @@ const form = reactive({
 const isSubmitting = ref(false);
 const submitStatus = ref<'idle' | 'success' | 'error'>('idle');
 
-// Validation
 const validateForm = () => {
 	if (!form.name.trim()) return false;
 	if (!form.email.trim() || !form.email.includes('@')) return false;
@@ -52,7 +53,7 @@ const handleSubmit = () => {
 	const to = 'gabriel.dav@outlook.fr';
 	const subject = encodeURIComponent(form.subject);
 	const body = encodeURIComponent(
-		`Nom : ${form.name}\nEmail : ${form.email}\n\n${form.message}`,
+		`${t('contact.name')} : ${form.name}\n${t('contact.email')} : ${form.email}\n\n${form.message}`,
 	);
 
 	window.location.href = `mailto:${to}?subject=${subject}&body=${body}`;
@@ -64,15 +65,14 @@ const handleSubmit = () => {
 	}, 3000);
 };
 
-// Contact info
-const contactInfo = [
+const contactInfo = computed(() => [
 	{
 		icon: 'i-heroicons-envelope',
-		label: 'Email',
+		label: t('contact.email'),
 		value: 'gabriel.dav@outlook.fr',
 		href: 'mailto:gabriel.dav@outlook.fr',
 	},
-];
+]);
 </script>
 
 <style scoped>

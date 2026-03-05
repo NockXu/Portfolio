@@ -33,7 +33,7 @@ export const projectMeta = {
 					variant="ghost"
 					size="sm"
 				>
-					Retour aux projets
+					{{ $t('projects.back') }}
 				</UButton>
 			</div>
 
@@ -100,7 +100,7 @@ export const projectMeta = {
 					{{ projectMeta.title }}
 				</h1>
 				<p class="text-gray-300 text-lg leading-relaxed mb-4">
-					Ce projet avait pour objectif de faire la maintenance de la borne d'arcade de l'IUT :
+					{{ $t('projects.arcade.intro') }}
 				</p>
 
 				<ul class="space-y-2 mb-6 ml-6">
@@ -109,37 +109,36 @@ export const projectMeta = {
 							name="i-heroicons-chevron-right"
 							class="w-4 h-4 text-blue-400 mt-0.5 shrink-0"
 						/>
-						Mettre à jour le raspberry pi 3
+						{{ $t('projects.arcade.item1') }}
 					</li>
 					<li class="text-gray-300 flex items-start gap-2">
 						<UIcon
 							name="i-heroicons-chevron-right"
 							class="w-4 h-4 text-blue-400 mt-0.5 shrink-0"
 						/>
-						Automatiser l'installation des dépendances
+						{{ $t('projects.arcade.item2') }}
 					</li>
 					<li class="text-gray-300 flex items-start gap-2">
 						<UIcon
 							name="i-heroicons-chevron-right"
 							class="w-4 h-4 text-blue-400 mt-0.5 shrink-0"
 						/>
-						Refaire la documentation
+						{{ $t('projects.arcade.item3') }}
 					</li>
 					<li class="text-gray-300 flex items-start gap-2">
 						<UIcon
 							name="i-heroicons-chevron-right"
 							class="w-4 h-4 text-blue-400 mt-0.5 shrink-0"
 						/>
-						Mettre en place des scripts qui utilisent de l'IA pour automatiser certaines tâches
+						{{ $t('projects.arcade.item4') }}
 					</li>
 				</ul>
 			</div>
 
 			<p class="pb-32">
-				En cours...
+				{{ $t('projects.arcade.wip') }}
 			</p>
 
-			<UDivider class="mb-8" />
 			<div class="flex justify-start">
 				<UButton
 					to="/projects"
@@ -147,7 +146,7 @@ export const projectMeta = {
 					color="gray"
 					variant="outline"
 				>
-					Tous les projets
+					{{ $t('projects.back') }}
 				</UButton>
 			</div>
 		</div>

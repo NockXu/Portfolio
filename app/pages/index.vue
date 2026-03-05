@@ -30,9 +30,8 @@ onMounted(() => {
 
 <template>
 	<div class="min-h-screen bg-gradient-to-br from-gray-900 via-blue-950 to-gray-900">
-		<!-- Carousel Section : pleine largeur, collé au header -->
+		<!-- Carousel Section -->
 		<div class="relative w-full h-[32rem] overflow-hidden border-b border-gray-700">
-			<!-- Images -->
 			<div
 				v-for="(image, index) in items"
 				:key="index"
@@ -46,17 +45,15 @@ onMounted(() => {
 				>
 			</div>
 
-			<!-- Filtre assombrissant -->
 			<div class="absolute inset-0 bg-black/55" />
 
-			<!-- Contenu centré sur le carousel : Hero + bouton CV -->
 			<div class="absolute inset-0 flex flex-col items-center justify-center z-10 px-4 text-center">
 				<h1 class="text-5xl md:text-7xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400 mb-4 animate-pulse hover:scale-105 transition-all duration-300 w-fit mx-auto">
-					DAVID Gabriel
+					{{ $t('index.title') }}
 				</h1>
 				<UDivider class="w-32 mx-auto mb-4" />
 				<p class="text-gray-300 text-lg max-w-2xl mx-auto mb-8">
-					Voici mon e-cv, ici mes projets et mon projet professionnel
+					{{ $t('index.subtitle') }}
 				</p>
 				<UButton
 					class="group relative overflow-hidden bg-gradient-to-r from-blue-500 to-purple-600 text-white text-lg px-8 py-4"
@@ -72,7 +69,7 @@ onMounted(() => {
 					}"
 				>
 					<span class="relative z-10 flex items-center text-lg">
-						Télécharger mon CV
+						{{ $t('index.downloadCV') }}
 						<UIcon
 							name="i-heroicons-arrow-down-tray"
 							class="ml-3 w-6 h-6 group-hover:animate-bounce"
@@ -83,28 +80,25 @@ onMounted(() => {
 			</div>
 		</div>
 
-		<!-- Sections À propos + Projets : même layout pleine largeur côte à côte -->
-
-		<!-- Section À propos : pleine largeur, sans cadre -->
+		<!-- Section À propos -->
 		<div class="w-full flex flex-col md:flex-row items-stretch min-h-[28rem] mt-8 mb-8">
-			<!-- Colonne gauche : texte -->
 			<div class="flex-1 flex flex-col justify-center px-12 py-16 text-right">
 				<h2 class="text-5xl font-bold text-blue-300 pb-4 mb-4">
-					À propos de moi
+					{{ $t('index.about.title') }}
 				</h2>
 				<div class="h-1 w-1/6 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full mb-8 ml-auto" />
 				<p class="text-gray-300 text-lg leading-relaxed mb-4">
-					Étudiant en informatique à l'IUT de Calais depuis plus de 2 ans.
+					{{ $t('index.about.text1') }}
 				</p>
 				<p class="text-gray-400 leading-relaxed mb-10">
-					J'habite à Calais et j'ai 20 ans. Je suis passionné par le développement informatique. De plus, je suis calme, rigoureux et capable de travailler en équipe...
+					{{ $t('index.about.text2') }}
 				</p>
 				<div>
 					<NuxtLink
 						to="/about"
 						class="group relative inline-flex items-center px-10 py-4 bg-gradient-to-r from-blue-500 to-purple-600 text-white font-medium text-lg rounded-lg overflow-hidden hover:shadow-lg transition-all duration-500 transform hover:-translate-y-0.5"
 					>
-						<span class="relative group-hover:translate-x-3 transition-all duration-500 ease-in-out z-10">En savoir plus sur moi</span>
+						<span class="relative group-hover:translate-x-3 transition-all duration-500 ease-in-out z-10">{{ $t('index.about.more') }}</span>
 						<UIcon
 							name="i-heroicons-arrow-right"
 							class="ml-4 w-6 h-6 group-hover:translate-x-2 transition-all duration-500 ease-in-out"
@@ -114,7 +108,6 @@ onMounted(() => {
 				</div>
 			</div>
 
-			<!-- Colonne droite : photo de profil -->
 			<div class="flex-1 flex items-center justify-center overflow-hidden p-8">
 				<img
 					src="/photo2.jpg"
@@ -124,26 +117,25 @@ onMounted(() => {
 			</div>
 		</div>
 
-		<!-- Section Mes Projets : pleine largeur, sans padding ni margin -->
+		<!-- Section Projets -->
 		<div class="w-full flex flex-col md:flex-row items-stretch min-h-[28rem]">
-			<!-- Colonne gauche : texte + bouton -->
 			<div class="flex-1 flex flex-col justify-center px-12 py-16 bg-gray-900/60">
 				<h2 class="text-5xl font-bold text-blue-300 pb-4 mb-4">
-					Mes projets
+					{{ $t('index.projects.title') }}
 				</h2>
 				<div class="h-1 w-1/6 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full mb-8" />
 				<p class="text-gray-300 text-lg leading-relaxed mb-4">
-					Au cours de mon parcours, j'ai eu l'opportunité de me lancer dans le développement d'applications.
+					{{ $t('index.projects.text1') }}
 				</p>
 				<p class="text-gray-400 leading-relaxed mb-10">
-					J'ai aussi eu l'occasion de créer des sites web, de travailler sur des interfaces graphiques et de concevoir des bases de données ...
+					{{ $t('index.projects.text2') }}
 				</p>
 				<div>
 					<NuxtLink
 						to="/projects"
 						class="group relative inline-flex items-center px-10 py-4 bg-gradient-to-r from-blue-500 to-purple-600 text-white font-medium text-lg rounded-lg overflow-hidden hover:shadow-lg transition-all duration-500 transform hover:-translate-y-0.5"
 					>
-						<span class="relative group-hover:translate-x-3 transition-all duration-500 ease-in-out z-10">Voir mes projets</span>
+						<span class="relative group-hover:translate-x-3 transition-all duration-500 ease-in-out z-10">{{ $t('index.projects.see') }}</span>
 						<UIcon
 							name="i-heroicons-arrow-right"
 							class="ml-4 w-6 h-6 group-hover:translate-x-2 transition-all duration-500 ease-in-out"
@@ -153,7 +145,6 @@ onMounted(() => {
 				</div>
 			</div>
 
-			<!-- Colonne droite : photo pleine hauteur -->
 			<div class="flex-1 min-h-[28rem] overflow-hidden">
 				<img
 					src="/projects/rando_passion/accueil.png"

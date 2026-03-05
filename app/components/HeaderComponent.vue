@@ -81,10 +81,6 @@ const pageTitle = computed(() => {
 
 		title="DAVID Gabriel"
 	>
-		<div class="flex items-center gap-8">
-			<Logo class="h-8 w-auto transition-transform duration-300 hover:scale-105" />
-		</div>
-
 		<!-- Navigation -->
 
 		<UNavigationMenu

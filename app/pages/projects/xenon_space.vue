@@ -33,7 +33,7 @@ export const projectMeta = {
 					variant="ghost"
 					size="sm"
 				>
-					Retour aux projets
+					{{ $t('projects.back') }}
 				</UButton>
 			</div>
 
@@ -100,7 +100,7 @@ export const projectMeta = {
 					{{ projectMeta.title }}
 				</h1>
 				<p class="text-gray-300 text-lg leading-relaxed">
-					Ce projet est un jeu vidéo développé en Python. Ce projet avait pour but de créer une IA qui pourrait jouer contre les joueurs ou contre une autre IA.
+					{{ $t('projects.xenon_space.intro') }}
 				</p>
 			</div>
 
@@ -114,14 +114,14 @@ export const projectMeta = {
 					>
 
 					<p class="text-gray-300 text-lg leading-relaxed">
-						Dans ce projet, j'ai programmé les classes pour jouer les animations, la création du HUD et la logique de tour.
+						{{ $t('projects.xenon_space.part1') }}
 					</p>
 
 					<h2 class="text-2xl font-bold text-cyan-300 mb-4">
-						L'IA créée
+						{{ $t('projects.xenon_space.aiTitle') }}
 					</h2>
 					<p class="text-gray-300 text-lg leading-relaxed">
-						L'IA créée est une IA qui calcule son prochain coup en fonction de la situation actuelle du jeu. Elle prend en compte plusieurs facteurs comme la position des vaisseaux (alliés et ennemis), la santé des vaisseaux et les actions possibles (nombre de déplacements, possibilités d'attaques).
+						{{ $t('projects.xenon_space.ai') }}
 					</p>
 				</div>
 
@@ -130,7 +130,7 @@ export const projectMeta = {
 					<UCard class="bg-gray-800/50 border-gray-700">
 						<template #header>
 							<h2 class="text-lg font-semibold text-cyan-300 flex items-center gap-2">
-								Technologies utilisées
+								{{ $t('projects.techUsed') }}
 							</h2>
 						</template>
 						<div class="flex flex-wrap gap-2">
@@ -148,22 +148,22 @@ export const projectMeta = {
 					<UCard class="bg-gray-800/50 border-gray-700">
 						<template #header>
 							<h2 class="text-lg font-semibold text-gray-300 flex items-center gap-2">
-								Informations
+								{{ $t('projects.info') }}
 							</h2>
 						</template>
 						<div class="space-y-3 text-sm">
 							<div class="flex justify-between items-center">
-								<span class="text-gray-400">Année</span>
+								<span class="text-gray-400">{{ $t('projects.year') }}</span>
 								<span class="text-white font-medium">{{ projectMeta.year }}</span>
 							</div>
 							<UDivider />
 							<div class="flex justify-between items-center">
-								<span class="text-gray-400">Catégorie</span>
+								<span class="text-gray-400">{{ $t('projects.categoryLabel') }}</span>
 								<span class="text-white font-medium">{{ projectMeta.category }}</span>
 							</div>
 							<UDivider />
 							<div class="flex justify-between items-center">
-								<span class="text-gray-400">Statut</span>
+								<span class="text-gray-400">{{ $t('projects.status') }}</span>
 								<UBadge
 									color="primary"
 									variant="soft"
@@ -177,7 +177,6 @@ export const projectMeta = {
 				</div>
 			</div>
 
-			<UDivider class="mb-8" />
 			<div class="flex justify-start">
 				<UButton
 					to="/projects"
@@ -185,7 +184,7 @@ export const projectMeta = {
 					color="gray"
 					variant="outline"
 				>
-					Tous les projets
+					{{ $t('projects.back') }}
 				</UButton>
 			</div>
 		</div>
